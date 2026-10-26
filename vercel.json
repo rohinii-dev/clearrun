@@ -1,0 +1,5 @@
+{
+  "rewrites": [{ "source": "/api/:route*", "destination": "/api/index?__route=:route*" }],
+  "crons": [{ "path": "/api/cron/reminders", "schedule": "30 3 * * *" }],
+  "functions": { "api/index.js": { "maxDuration": 60 } }
+}

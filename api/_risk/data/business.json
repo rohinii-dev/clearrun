@@ -1,0 +1,16 @@
+{
+  "today": "2026-10-24",
+  "opening_cash": 1100000,
+  "min_buffer": 250000,
+  "horizon_days": 90,
+  "runs": 2000,
+  "seed": 42,
+  "half_life_days": 90,
+  "shrinkage_k": 3,
+  "min_std_days": 2.0,
+  "future_sales_lookback_days": 180,
+  "msmed_bank_rate": 0.065,
+  "msmed_multiplier": 3,
+  "msmed_max_days": 45,
+  "_note": "msmed_bank_rate is a PLACEHOLDER. Verify the current RBI bank rate and the MSMED Act rules from an official source before relying on cost figures."
+}

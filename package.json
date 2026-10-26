@@ -1,0 +1,14 @@
+{
+  "name": "clearrun-cash-flow",
+  "version": "5.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "test": "node tests/extract.test.mjs && node tests/reminders.test.mjs",
+    "test:e2e": "bash tests/e2e/run.sh"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

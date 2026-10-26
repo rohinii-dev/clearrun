@@ -1,0 +1,27 @@
+<div class="panel setpanel importpanel" id="importPanel">
+ <h2>Import your data</h2>
+ <p class="setnote">Upload a <b>CSV or Excel</b> file. ClearRun recognises two kinds of file:</p>
+ <ul class="importkinds">
+  <li><b>Cash flow entries</b>: money coming in and going out (name, type, amount, due date…), added to your forecast.</li>
+  <li><b>Customer payment history</b>: past invoices with due and paid dates. The Customer credit check then scores <b>your</b> customers.</li>
+ </ul>
+ <div class="setrow"><button class="secondarybtn" type="button" id="tplTx">Download cash flow template</button><button class="secondarybtn" type="button" id="tplHist">Download payment history template</button></div>
+ <label class="dropzone small" id="impDrop" for="impFile">
+  <input type="file" id="impFile" accept=".csv,.xlsx,.xls,text/csv" hidden>
+  <span class="dropicon">⇪</span><b>Choose a CSV or Excel file</b><span>or drag it here</span>
+ </label>
+ <div id="impPreview" hidden>
+  <div class="impkind"><span>This file looks like:</span>
+   <label><input type="radio" name="impKind" value="tx"> Cash flow entries</label>
+   <label><input type="radio" name="impKind" value="hist"> Customer payment history</label>
+  </div>
+  <div class="impsummary" id="impSummary"></div>
+  <div class="tablewrap"><table class="datatable" id="impTable"></table></div>
+  <div class="imperrors" id="impErrors"></div>
+  <label class="impcheck" id="impReplaceWrap"><input type="checkbox" id="impReplace"> Replace my existing entries (otherwise they're added)</label>
+  <label class="impcheck" id="impUnpaidWrap"><input type="checkbox" id="impUnpaid" checked> Also add unpaid invoices to my forecast as expected receipts</label>
+  <div class="setrow"><button class="primarybtn" type="button" id="impGo">Import</button><button class="reset" type="button" id="impCancel">Cancel</button></div>
+ </div>
+ <div class="setmsg" id="impMsg" aria-live="polite"></div>
+ <div class="impcurrent" id="impCurrent"></div>
+</div>

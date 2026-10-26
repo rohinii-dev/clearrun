@@ -1,0 +1,1033 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ClearRun Cash Flow</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+:root{--ink:#172b25;--muted:#718078;--line:#e7ece8;--paper:#f5f7f4;--white:#fff;--green:#18734f;--green2:#e8f4ed;--orange:#d58b32;--red:#c64c45;--shadow:0 8px 30px #193e2810}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);font:14px 'DM Sans',sans-serif;color:var(--ink)}button,input{font:inherit}.app{min-height:100vh}.topbar{height:68px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 4.2vw}.brand{display:flex;align-items:center;gap:10px;font:800 20px Manrope,sans-serif;letter-spacing:-.7px}.logo{width:29px;height:29px;border-radius:9px;background:var(--green);display:grid;place-items:center;color:white;font-weight:800}.logo svg{width:17px}.righttop{display:flex;align-items:center;gap:20px;color:var(--muted);font-size:13px}.avatar{width:32px;height:32px;border-radius:50%;background:#dcebe1;color:var(--green);display:grid;place-items:center;font-weight:700}.layout{display:grid;grid-template-columns:220px minmax(0,1fr);max-width:1500px;margin:auto}.sidebar{padding:28px 16px;border-right:1px solid var(--line);min-height:calc(100vh - 68px);background:#fbfcfa}.side-label{font-size:10px;color:#9aa49e;letter-spacing:1.2px;font-weight:700;padding:0 12px;margin:12px 0}.nav{display:flex;gap:11px;align-items:center;color:#78857c;padding:11px 12px;border-radius:9px;margin:3px 0;font-weight:500}.nav.active{background:var(--green2);color:var(--green);font-weight:700}.nav .ico{width:17px;text-align:center;font-size:16px}.business-card{margin:44px 8px 0;padding:14px;border:1px solid var(--line);border-radius:12px;background:white}.bizhead{display:flex;gap:9px;align-items:center;font-weight:700;font-size:12px}.bizmark{width:29px;height:29px;border-radius:8px;background:#f7ead4;color:#ab7026;display:grid;place-items:center;font-weight:800}.bizsub{font-size:11px;color:var(--muted);margin:7px 0 0 38px}.main{padding:34px clamp(22px,4vw,58px) 55px;max-width:1250px;width:100%;margin:auto}.welcome{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:25px}.eyebrow{font-size:11px;color:var(--green);font-weight:700;letter-spacing:1.15px;text-transform:uppercase;margin-bottom:8px}.welcome h1{font:700 29px Manrope,sans-serif;letter-spacing:-1px;margin:0 0 7px}.welcome p{margin:0;color:var(--muted);font-size:13px}.datepill{padding:9px 12px;border:1px solid var(--line);border-radius:9px;background:#fff;color:#59685f;font-size:12px}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:17px}.card{background:#fff;border:1px solid var(--line);border-radius:13px;padding:17px 18px;box-shadow:var(--shadow)}.cardlabel{font-size:12px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}.cardvalue{font:700 24px Manrope,sans-serif;letter-spacing:-.6px;margin:9px 0 5px}.cardfoot{color:#859188;font-size:11px}.positive{color:var(--green);font-weight:600}.warn{color:#b97622;font-weight:600}.contentgrid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(270px,.85fr);gap:16px;align-items:start}.panel{background:#fff;border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow)}.panelhead{display:flex;align-items:flex-start;justify-content:space-between;padding:18px 20px 0}.panel h2{font:700 15px Manrope,sans-serif;margin:0}.sub{font-size:11px;color:var(--muted);margin-top:5px}.select{border:1px solid var(--line);background:#fff;border-radius:7px;padding:7px 9px;color:#59685f;font-size:11px}.chartwrap{padding:9px 16px 3px}.chart{width:100%;height:230px;overflow:visible}.chart-legend{display:flex;gap:19px;padding:0 20px 16px;color:var(--muted);font-size:11px}.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}.baseline{background:#aab7af}.projected{background:var(--green)}.chartnote{margin:0 20px 18px;background:#f5f8f5;padding:10px 12px;border-radius:8px;font-size:11px;color:#617167;display:flex;gap:8px;line-height:1.5}.chartnote b{color:var(--ink)}.scenario{padding:18px 19px}.scenariohead{display:flex;justify-content:space-between;align-items:center}.badge{background:#fff3e2;color:#a36a20;border-radius:20px;padding:5px 8px;font-size:10px;font-weight:700}.scenintro{color:var(--muted);font-size:11px;line-height:1.55;margin:9px 0 17px}.control{padding:13px 0;border-top:1px solid #edf0ed}.controltop{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:600}.controltop span:last-child{color:var(--green)}input[type=range]{width:100%;accent-color:var(--green);height:4px;margin:13px 0 2px}.rangescale{display:flex;justify-content:space-between;font-size:10px;color:#9aa49e}.impact{margin-top:15px;border-radius:10px;padding:13px;background:#f1f7f2}.impacttitle{font-size:10px;font-weight:700;color:var(--green);letter-spacing:.65px;text-transform:uppercase}.impactrow{display:flex;justify-content:space-between;margin-top:9px;font-size:11px;color:#65746a}.impactrow strong{color:var(--ink);font-size:12px}.reset{border:0;background:transparent;color:var(--green);font-size:11px;font-weight:700;cursor:pointer;padding:0}.lower{display:grid;grid-template-columns:1.3fr .8fr;gap:16px;margin-top:16px}.list{padding:4px 19px 12px}.event{display:grid;grid-template-columns:30px 1fr auto;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid #f0f2f0}.event:last-child{border:0}.eventicon{width:29px;height:29px;border-radius:9px;background:#edf5ef;color:var(--green);display:grid;place-items:center;font-size:14px}.eventicon.out{background:#fff2e9;color:#bd7335}.eventname{font-size:11px;font-weight:700}.eventmeta{font-size:10px;color:var(--muted);margin-top:3px}.amount{font-size:11px;font-weight:700;text-align:right}.amount.in{color:var(--green)}.amount.out{color:#44544a}.status{font-size:9px;color:#9a7a40;background:#fff5e6;padding:3px 6px;border-radius:10px;margin-top:4px;display:inline-block}.obligations{padding:18px 20px}.obrow{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid #f0f2f0;font-size:11px;color:#69776e}.obrow:last-child{border:0}.obrow strong{color:var(--ink)}.obtotal{display:flex;justify-content:space-between;border-top:1px solid var(--line);margin-top:4px;padding-top:13px;font-weight:700;font-size:12px}.footnote{text-align:center;color:#a0aaa3;font-size:10px;margin-top:22px}.tooltip{font:11px 'DM Sans';fill:#fff}.mobilemenu{display:none}
+@media(max-width:920px){.layout{grid-template-columns:64px minmax(0,1fr)}.sidebar{padding:20px 9px}.side-label,.nav span:not(.ico),.business-card{display:none}.nav{justify-content:center;padding:12px 0}.contentgrid{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.lower{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.topbar{height:58px;padding:0 16px}.righttop .help{display:none}.layout{display:block}.sidebar{display:none}.main{padding:23px 14px}.welcome h1{font-size:24px}.datepill{font-size:10px}.cards{gap:9px}.card{padding:14px}.cardvalue{font-size:20px}.contentgrid,.lower{grid-template-columns:1fr}.chart{height:200px}.cardfoot{font-size:10px}}
+
+.flowform{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr auto auto;gap:9px;align-items:end;padding:16px 20px 8px}.flowform[hidden]{display:none}.flowform label{font-size:10px;color:#69776e;display:grid;gap:5px}.flowform input,.flowform select{min-width:0;width:100%;padding:9px;border:1px solid #dce5dd;border-radius:7px;background:#fff;color:var(--ink)}.emptyhint{padding:12px 0;color:#87938b;font-size:11px;line-height:1.5}.event .reset{margin-left:5px;font-size:15px;color:#9aa49e}@media(max-width:780px){.flowform{grid-template-columns:1fr 1fr}.flowform label:first-child{grid-column:1/-1}.flowform button{padding:10px}}
+.invform{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:14px 20px 8px;align-items:end}.invform[hidden]{display:none}.invform label{font-size:10px;color:#69776e;display:grid;gap:5px}.invform input{min-width:0;padding:9px;border:1px solid #dce5dd;border-radius:7px;background:#fff;color:var(--ink)}.invform input.auto{background:#f2faf3;border-color:#9fd0aa}.scanbox{grid-column:1/-1;display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:10px 12px;border:1px dashed #b9cbbd;border-radius:9px;background:#f9fbf8}.scanbtn{cursor:pointer;display:inline-block}.scanhint{font-size:11px;color:#69776e;flex:1;min-width:200px}.scanhint.warn{color:#8a5a00}.scanhint.err{color:#b3261e}.invcheck{grid-column:1/-1;display:flex!important;gap:8px;align-items:center;font-size:12px!important}.invcheck input{width:auto}.invbtns{grid-column:1/-1;display:flex;gap:10px}.remline{font-size:10px;color:#69776e;margin-top:3px}.remline b{color:#1b5e3a}.remline.warn{color:#8a5a00}.listhead{font-size:11px;font-weight:700;color:#69776e;padding:14px 20px 0;text-transform:uppercase;letter-spacing:.04em}.remform{display:grid;gap:10px;margin-top:14px}.remform label{font-size:10px;color:#69776e;display:grid;gap:5px}.remform input{padding:9px;border:1px solid #dce5dd;border-radius:7px;background:#fff;color:var(--ink)}.remform button{justify-self:start}.invrow .invact{flex-wrap:wrap}@media(max-width:620px){.invform{grid-template-columns:1fr}}
+</style>
+<style>
+[hidden]{display:none!important}.landing{background:#f7f8f5;min-height:100vh}.landingbar{height:72px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,6vw,92px)}.landnav{display:flex;align-items:center;gap:26px;color:#69776e;font-size:12px}.landnav a{color:inherit;text-decoration:none}.landnav a:hover{color:var(--green)}.landnav button,.primarybtn,.secondarybtn{border:0;border-radius:8px;padding:11px 16px;font-weight:700;font-size:12px;cursor:pointer}.landnav button,.primarybtn{background:var(--green);color:#fff;box-shadow:0 5px 14px #18734f22}.primarybtn:hover,.landnav button:hover{background:#105e40}.secondarybtn{background:#fff;border:1px solid #dfe7e0;color:var(--ink)}.landinghero{max-width:1200px;margin:auto;padding:74px 30px 62px;display:grid;grid-template-columns:1.05fr .95fr;gap:65px;align-items:center}.landbadge{display:inline-flex;gap:8px;align-items:center;border:1px solid #dce9df;color:var(--green);background:#eff6f0;padding:7px 10px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:.3px}.landbadge i{width:7px;height:7px;border-radius:50%;background:#4aa271}.landinghero h1{font:800 clamp(38px,5vw,59px)/1.08 Manrope,sans-serif;letter-spacing:-2.4px;margin:22px 0 16px;max-width:570px}.landinghero h1 em{font-style:normal;color:var(--green)}.landcopy{max-width:475px;color:#69776e;font-size:15px;line-height:1.75;margin:0 0 24px}.landactions{display:flex;gap:10px;align-items:center}.landhint{color:#8c9990;font-size:10px;margin-top:14px}.previewcard{background:#fff;border:1px solid #e6ece7;border-radius:17px;padding:23px;box-shadow:0 18px 55px #1b392314;transform:rotate(1deg)}.prevtop{display:flex;justify-content:space-between;align-items:center}.prevtitle{font:700 13px Manrope}.livepill{font-size:9px;color:var(--green);background:#edf6ef;padding:5px 8px;border-radius:20px;font-weight:700}.prevstats{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:19px 0}.prevstat{background:#f7f9f7;border-radius:10px;padding:13px}.prevlabel{color:#819087;font-size:10px}.prevvalue{font:700 19px Manrope;margin-top:6px}.prevchart{height:145px;background:linear-gradient(180deg,#f1f7f2,#fff);border-radius:11px;padding:8px}.prevchart svg{width:100%;height:100%}.prevlegend{font-size:9px;color:#8b978f;margin-top:9px}.landingsection{padding:62px 28px;max-width:1200px;margin:auto}.sectionhead{text-align:center;max-width:610px;margin:0 auto 30px}.sectionhead h2{font:700 27px Manrope;letter-spacing:-.8px;margin:0 0 9px}.sectionhead p{color:var(--muted);font-size:13px;line-height:1.6;margin:0}.featuregrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.feature{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px}.featureicon{width:34px;height:34px;border-radius:10px;background:#eaf4ed;display:grid;place-items:center;color:var(--green);font-size:16px;margin-bottom:14px}.feature h3{font:700 14px Manrope;margin:0 0 7px}.feature p{font-size:11px;color:var(--muted);line-height:1.65;margin:0}.quickpanel{display:grid;grid-template-columns:.9fr 1.1fr;gap:30px;align-items:center;background:#eaf3ec;border-radius:16px;padding:28px 32px}.quickpanel h2{font:700 23px Manrope;margin:0 0 9px}.quickpanel p{font-size:12px;color:#66776c;line-height:1.65;margin:0}.quickform{display:grid;grid-template-columns:repeat(3,1fr) auto;gap:9px;align-items:end}.quickform label{font-size:9px;color:#66776c;display:block;margin-bottom:5px}.quickform input{width:100%;padding:10px;border:1px solid #d6e1d8;border-radius:7px;background:#fff;outline-color:var(--green);font-size:12px}.quickform button{height:37px;white-space:nowrap}.quickresult{grid-column:1/-1;font-size:11px;color:#45614e;min-height:17px;padding-top:3px}.landfoot{padding:24px 6vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;color:#8a968e;font-size:10px}.landfoot strong{color:var(--green);font:800 14px Manrope}@media(max-width:780px){.landinghero{grid-template-columns:1fr;gap:35px;padding-top:48px}.landinghero h1{font-size:42px}.previewcard{max-width:540px;width:100%;margin:auto}.featuregrid{grid-template-columns:1fr}.quickpanel{grid-template-columns:1fr}.quickform{grid-template-columns:1fr 1fr}.quickform button{grid-column:1/-1}.landnav{gap:12px}.landnav a{display:none}}@media(max-width:480px){.landingbar{height:62px;padding:0 17px}.landinghero{padding:40px 18px}.landinghero h1{font-size:37px;letter-spacing:-1.7px}.landactions{align-items:stretch;flex-direction:column}.landactions button{width:100%}.landingsection{padding:45px 18px}.quickpanel{padding:22px 17px}.quickform{grid-template-columns:1fr 1fr}.prevvalue{font-size:16px}.landfoot{padding:20px;gap:10px}}
+</style>
+<style>
+.googlelive{display:flex;justify-content:center;min-height:42px;margin:15px 0 8px}.googlelive>div{max-width:100%}
+.authactions{display:flex;gap:10px;max-width:440px}.authactions button{flex:1;min-height:48px}.googlebtn{display:flex;align-items:center;justify-content:center;gap:9px}.googleG{font:bold 16px Arial;color:#4285f4}.authsub{font-size:10px;color:#8c9990;margin:9px 0 0}.browseDivider{max-width:440px;display:flex;align-items:center;gap:12px;margin:20px 0 13px;color:#a2aca5;font-size:9px;font-weight:700;letter-spacing:.8px}.browseDivider:before,.browseDivider:after{content:"";height:1px;background:#e3e9e4;flex:1}.landactions{max-width:510px}.landactions button{min-height:44px}.landhint{margin-top:9px}.modal{position:fixed;z-index:20;inset:0;display:grid;place-items:center;padding:18px}.modalshade{position:absolute;inset:0;background:#10271db8;backdrop-filter:blur(3px)}.authdialog{position:relative;z-index:1;background:#fff;width:min(100%,430px);padding:29px;border-radius:16px;box-shadow:0 25px 80px #061c1280;max-height:calc(100vh - 36px);overflow:auto}.closemodal{position:absolute;right:17px;top:15px;border:0;background:#f3f6f3;color:#68766d;width:30px;height:30px;border-radius:50%;font-size:18px;cursor:pointer}.authlogo{width:38px;height:38px;border-radius:12px;background:#e9f4ec;display:grid;place-items:center;color:var(--green);font-size:18px;margin-bottom:15px}.authdialog h2{font:700 22px Manrope;margin:0 35px 6px 0;letter-spacing:-.5px}.authdesc{font-size:12px;color:var(--muted);line-height:1.6;margin:0 0 18px}.authform label{display:block;font-size:11px;font-weight:600;margin:12px 0 6px}.authform input{display:block;width:100%;padding:11px 12px;border:1px solid #dce5dd;border-radius:8px;outline:none;font:13px 'DM Sans',sans-serif}.authform input:focus{border-color:var(--green);box-shadow:0 0 0 3px #18734f17}.authsubmit{width:100%;margin-top:17px;min-height:43px}.securehint{font-size:9px;color:#95a198;line-height:1.5;margin-top:12px;text-align:center}.oauthdemo{background:#f5f8f5;border-radius:10px;padding:13px;font-size:11px;color:#65736a;line-height:1.6;margin:17px 0}.authsuccess{text-align:center;padding:12px 0 3px}.successmark{width:52px;height:52px;margin:0 auto 14px;background:#e8f5ec;color:var(--green);border-radius:50%;display:grid;place-items:center;font-size:24px}.authsuccess h2{margin:0 0 8px}.authsuccess p{color:var(--muted);font-size:12px;line-height:1.6;margin:0 0 19px}.authsuccess .primarybtn{width:100%}.authmessage{font-size:11px;color:#b44c40;min-height:16px;margin-top:8px}@media(max-width:780px){.authactions{max-width:100%}.browseDivider{max-width:100%}}@media(max-width:480px){.authactions{flex-direction:column}.authactions button{width:100%}.authdialog{padding:25px 21px}}
+</style>
+<style>
+.stepsgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.stepcard{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px}.stepnum{font:700 11px Manrope;color:var(--green);background:#eaf4ed;border-radius:8px;padding:7px 9px;display:inline-block;margin-bottom:13px}.stepcard h3{font:700 14px Manrope;margin:0 0 7px}.stepcard p{font-size:11px;line-height:1.65;color:var(--muted);margin:0}@media(max-width:780px){.stepsgrid{grid-template-columns:1fr}}
+.signinNav{background:transparent!important;color:var(--green)!important;box-shadow:none!important;padding:9px 3px!important}.signinNav:hover{text-decoration:underline}.authlink{border:0;background:transparent;padding:0;color:var(--green);font-weight:700;cursor:pointer}.authlink:hover{text-decoration:underline}.authswitch{text-align:center;margin-top:14px;font-size:11px;color:var(--muted)}.demohint{background:#f5f8f5;border-radius:8px;padding:10px;margin-top:13px;color:#65736a;font-size:10px;line-height:1.55}.oauthwide{max-width:440px;width:100%;min-height:48px;margin-top:10px}.authactions button{font-size:13px}
+</style>
+<style>
+.nav{border:0;background:transparent;width:100%;cursor:pointer;text-align:left;font:500 14px 'DM Sans',sans-serif;transition:background .15s,color .15s}.nav:hover{background:#f0f4f1;color:var(--green)}.nav.active{background:var(--green2);color:var(--green);font-weight:700}.nav:focus-visible{outline:2px solid var(--green);outline-offset:1px}
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:17px}
+.viewgrid{display:grid;grid-template-columns:1.3fr .8fr;gap:16px;align-items:start}.setgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:14px 20px 6px}.chips{display:flex;gap:6px}.chip{border:1px solid var(--line);background:#fff;border-radius:20px;padding:6px 12px;font-size:11px;font-weight:600;color:#59685f;cursor:pointer}.chip.on{background:var(--green2);border-color:#cfe5d7;color:var(--green)}.search{flex:1;min-width:150px;padding:8px 10px;border:1px solid #dce5dd;border-radius:7px;font-size:12px;background:#fff;color:var(--ink)}
+.invact{display:flex;gap:8px;align-items:center;justify-content:flex-end}.mini{padding:6px 10px;font-size:10px}
+.setrow{display:grid;grid-template-columns:1fr auto;gap:9px;align-items:end;margin-top:14px}.setrow label{font-size:10px;color:#69776e;display:grid;gap:5px}.setrow input{width:100%;padding:9px;border:1px solid #dce5dd;border-radius:7px;background:#fff;color:var(--ink)}.setmsg{font-size:11px;color:var(--green);min-height:16px;margin-top:10px}.setmsg.err{color:#b44c40}
+.dangerbtn{border:1px solid #efd3d0;background:#fff;color:#b44c40;border-radius:8px;padding:11px 16px;font-weight:700;font-size:12px;cursor:pointer}.dangerbtn:hover{background:#fdf3f2}
+@media(max-width:920px){.viewgrid,.setgrid{grid-template-columns:1fr}}
+@media(max-width:620px){.cards3{grid-template-columns:1fr}.sidebar{display:flex;overflow-x:auto;min-height:0;padding:8px 10px;gap:4px;border-right:0;border-bottom:1px solid var(--line)}.side-label{display:none}.nav{width:auto;flex:0 0 auto;white-space:nowrap;margin:0;padding:9px 12px;justify-content:flex-start}.nav span:not(.ico){display:inline}.nav .ico{width:auto}.invact{flex-wrap:wrap}}
+/* ===== v5 additions ===== */
+.crdialog{border:0;border-radius:16px;padding:0;max-width:min(760px,94vw);width:100%;box-shadow:0 30px 80px #10261b40;color:var(--ink)}
+.crdialog::backdrop{background:#0f241a66}
+.crclose{position:absolute;right:12px;top:10px;border:0;background:none;font-size:24px;color:var(--muted);cursor:pointer}
+.crnote{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:11px 16px;border-radius:10px;font-size:12px;z-index:60;max-width:90vw;box-shadow:var(--shadow)}
+.crnote.err{background:#8f2f29}
+.gslot{margin:4px 0 10px}.gslot .googlelive{display:flex;justify-content:center;min-height:44px}
+.gnote{font-size:11px;color:#8f5a14;text-align:center;margin-top:6px}.gnote:empty{display:none}
+.ordiv{display:flex;align-items:center;gap:10px;color:#9aa49e;font-size:10px;letter-spacing:.6px;text-transform:uppercase;margin:12px 0 4px}
+.ordiv:before,.ordiv:after{content:"";flex:1;height:1px;background:var(--line)}
+.ghelp{margin-top:14px;font-size:11px;color:var(--muted)}.ghelp summary{cursor:pointer}.ghelp code{background:#f1f4f1;padding:1px 5px;border-radius:4px}
+.teamrow{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:14px}
+.teamcode{display:grid;gap:3px;font-size:11px;color:var(--muted)}.teamcode b{font:800 18px Manrope,sans-serif;letter-spacing:2px;color:var(--ink)}
+.invhint{grid-column:1/-1;margin:0;font-size:10px;color:var(--muted)}
+.scanwarn{grid-column:1/-1;margin:0;padding:8px 12px 8px 28px;background:#fff8ec;border:1px solid #f1dcb5;border-radius:8px;font-size:11px;color:#7a5313}
+.invform input.check{background:#fff8ec;border-color:#e7b765;box-shadow:0 0 0 2px #f6dfb4}
+.tier{display:inline-block;border-radius:20px;padding:2px 8px;font-size:9.5px;font-weight:700;letter-spacing:.2px;vertical-align:1px}
+.tier.tg{background:#e5f4ea;color:#1f6b45}.tier.tf{background:#fff1dc;color:#93601c}.tier.tl{background:#fde6e4;color:#a23a33}
+.ladder{padding:24px 26px 20px;max-height:86vh;overflow:auto}.ladder h2{font:800 17px Manrope,sans-serif;margin:0 30px 6px 0}
+.ladder .sub{font-size:12px;color:var(--muted);margin:0 0 10px}.ladder .hint{font-size:11px;color:var(--muted);margin:8px 0}.ladder .err{color:var(--red)}
+.tierbox{border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin:10px 0}
+.tierbox h3{font-size:12px;margin:2px 0 8px;display:flex;gap:8px;align-items:center;color:var(--muted);font-weight:500}
+.tierbox.tl{border-color:#f2c9c5;background:#fffafa}
+.mail{border-top:1px solid #f0f2f0;padding:7px 0}.mail summary{display:flex;justify-content:space-between;gap:10px;cursor:pointer;font-size:12px;font-weight:600}
+.mstatus{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}.mstatus.sent{color:var(--green)}.mstatus.needsapproval{color:#a23a33}
+.msubject{font-size:12px;font-weight:700;margin:8px 0 4px}
+.mbody{white-space:pre-wrap;font:12px/1.55 'DM Sans',sans-serif;background:#f8faf8;border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:0;max-height:300px;overflow:auto}
+.mactions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.ladderfoot{border-top:1px solid var(--line);margin-top:12px;padding-top:12px}
+.legalopt{display:flex;gap:8px;align-items:flex-start;font-size:12px;margin-bottom:12px}
+.ladderbtns{display:flex;justify-content:flex-end;gap:10px}
+.riskgrid2{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:18px;margin-top:18px;align-items:start}
+.riskgrid2 .panelhead{padding:18px 20px 10px}
+#rkList{padding:0 20px 14px}
+.riskcustomer{border:1px solid var(--line);border-radius:11px;padding:12px 14px;margin:10px 0}
+.riskcustomerhead{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.riskcustomername{font-weight:700}
+.riskbadge{display:inline-block;border-radius:20px;padding:3px 9px;font-size:10px;font-weight:700;background:#e5f4ea;color:#1f6b45;white-space:nowrap}
+.riskbadge.limited{background:#fff1dc;color:#93601c}.riskbadge.advance{background:#fde6e4;color:#a23a33}.riskbadge.unknown{background:#eef1ee;color:#69776e}
+.eventname .riskbadge{margin-left:6px;font-size:9px;padding:2px 7px}
+.riskmeta{font-size:11px;color:var(--muted);margin-top:4px}.riskreason{font-size:11px;margin-top:6px;color:#3d5047}
+.riskbtns{display:flex;gap:16px;margin-top:9px;flex-wrap:wrap}.riskbtns .reset{font-size:11px;color:var(--green);font-weight:600}.riskbtns.end{justify-content:flex-end;margin-top:14px}
+.dealform{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:4px 20px 12px;align-items:end}
+.dealform label,.rkform label{font-size:10px;color:#69776e;display:grid;gap:5px}
+.dealform input,.dealform select,.rkform input,.rkform select{min-width:0;padding:9px;border:1px solid #dce5dd;border-radius:7px;background:#fff;color:var(--ink);font:inherit}
+.dealnew{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}.dealnew[hidden]{display:none}
+.dealform button{grid-column:1/-1;justify-self:start}
+.dealresult{margin:0 20px 18px;border:1px solid var(--line);border-radius:12px;padding:14px}
+.riskResultHead{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.riskScore{font-size:11px;color:var(--muted)}
+.dealstats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0}
+.dealstats>div{background:#f8faf8;border-radius:9px;padding:10px;display:grid;gap:3px}.dealstats small{font-size:10px;color:var(--muted)}.dealstats strong{font-size:12.5px}
+.riskActions{margin:6px 0 0;padding-left:18px;font-size:12px;line-height:1.55}.small{font-size:11px}
+.riskSimilar{font-size:11px;color:var(--muted);margin-top:10px}
+.rkform{padding:24px 26px 20px;display:grid;grid-template-columns:1fr 1fr;gap:10px}.rkform h2{font:800 17px Manrope,sans-serif;margin:0 30px 0 0;grid-column:1/-1}
+.rkform h3{font-size:12px;margin:8px 0 0}.rkform .sub{grid-column:1/-1;font-size:12px;color:var(--muted);margin:0}.rkform .wide{grid-column:1/-1}
+@media (max-width:900px){.riskgrid2{grid-template-columns:1fr}.dealform,.dealnew,.dealstats{grid-template-columns:1fr}.rkform{grid-template-columns:1fr}}
+
+</style><script src="https://accounts.google.com/gsi/client" async defer></script></head>
+<body><div class="app">
+<div class="landing" id="landingView">
+ <header class="landingbar"><div class="brand"><div class="logo"><svg viewBox="0 0 20 20" fill="none"><path d="M3 13.5 7.2 9.3l3 2.7L17 5.5M12.5 5.5H17v4.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>clearrun</div><nav class="landnav"><a href="#features">Features</a><a href="#how">How it works</a><button class="openDashboard">Open demo&nbsp; ↗</button></nav></header>
+ <section class="landinghero"><div><span class="landbadge"><i></i> CASH FLOW FOR SMALL BUSINESSES</span><h1>Know how much cash you have. <em>See what’s coming.</em></h1><p class="landcopy">See what’s available, what customers owe, and which bills are coming up. Check what happens if a payment is late or a new cost comes up.</p><div class="authactions"><button class="primarybtn" id="openSignup">Sign up</button><button class="secondarybtn" id="openSigninInline">Sign in</button></div><button class="secondarybtn googlebtn oauthwide" id="oauthBtn"><b class="googleG">G</b> Continue with Google</button><div class="authsub">Use your phone number and password, or continue with Google.</div><div class="browseDivider"><span>OR EXPLORE FIRST</span></div><div class="landactions"><button class="primarybtn openDashboard">Explore the dashboard&nbsp; →</button><button class="secondarybtn" id="scrollQuick">Try a quick cash check</button></div><div class="landhint">Preview the cash tools without creating an account.</div></div>
+ <div class="previewcard"><div class="prevtop"><div class="prevtitle">Sample business · Cash outlook</div><span class="livepill">13 WEEKS</span></div><div class="prevstats"><div class="prevstat"><div class="prevlabel">Cash available now</div><div class="prevvalue">₹4,80,000</div></div><div class="prevstat"><div class="prevlabel">Expected receipts</div><div class="prevvalue">₹3,25,000</div></div></div><div class="prevchart"><svg viewBox="0 0 420 140" preserveAspectRatio="none"><defs><linearGradient id="pfill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#18734f" stop-opacity=".2"/><stop offset="1" stop-color="#18734f" stop-opacity="0"/></linearGradient></defs><line x1="18" y1="98" x2="405" y2="98" stroke="#e7c77f" stroke-dasharray="4 5"/><line x1="18" y1="38" x2="405" y2="38" stroke="#edf1ed"/><path d="M18 30 C70 38 92 44 128 55 S185 66 215 73 S269 81 300 88 S360 94 405 98 L405 128 L18 128Z" fill="url(#pfill)"/><path d="M18 30 C70 38 92 44 128 55 S185 66 215 73 S269 81 300 88 S360 94 405 98" fill="none" stroke="#18734f" stroke-width="3" stroke-linecap="round"/><circle cx="405" cy="98" r="4" fill="#fff" stroke="#18734f" stroke-width="2"/><text x="18" y="136" font-size="9" fill="#8b978f">Today</text><text x="365" y="136" font-size="9" fill="#8b978f">Week 13</text></svg></div><div class="prevlegend"><span style="color:#18734f">●</span> Projected balance &nbsp;&nbsp; <span style="color:#d9ae53">—</span> Reserve threshold</div></div></section>
+ <section class="landingsection" id="how"><div class="sectionhead"><h2>How it works</h2><p>Start with the cash you have, then add the money expected in and the bills due out.</p></div><div class="stepsgrid"><article class="stepcard"><span class="stepnum">01</span><h3>Add your cash details</h3><p>Enter your available balance, expected customer payments, and upcoming bills.</p></article><article class="stepcard"><span class="stepnum">02</span><h3>Review the forecast</h3><p>See how your balance may change over the next 13 weeks.</p></article><article class="stepcard"><span class="stepnum">03</span><h3>Plan ahead</h3><p>Spot a possible cash gap early and decide what to follow up or adjust.</p></article></div></section>
+ <section class="landingsection" id="features"><div class="sectionhead"><h2>See your cash today and what may change</h2><p>Keep your balance, expected payments, and upcoming bills together.</p></div><div class="featuregrid"><article class="feature"><div class="featureicon">◷</div><h3>Know where you stand</h3><p>See the cash you have now, the payments you expect, and the bills due soon.</p></article><article class="feature"><div class="featureicon">⌁</div><h3>See a possible shortfall</h3><p>Follow your projected balance and spot when it may get close to your reserve.</p></article><article class="feature"><div class="featureicon">↗</div><h3>Compare your options</h3><p>Change payment dates, sales, or costs and see how the forecast moves.</p></article></div></section>
+ <section class="landingsection" id="quickCheck"><div class="quickpanel"><div><div class="eyebrow">Try it now</div><h2>Quick cash check for next month</h2><p>Enter rough totals to see how much cash may remain after expected receipts and upcoming obligations. This is a simple estimate, not a full forecast.</p></div><div class="quickform"><div><label for="qCash">Cash available now</label><input id="qCash" type="number" placeholder="Enter amount" min="0"></div><div><label for="qIn">Expected receipts</label><input id="qIn" type="number" placeholder="Enter amount" min="0"></div><div><label for="qOut">Upcoming obligations</label><input id="qOut" type="number" placeholder="Enter amount" min="0"></div><button class="primarybtn" id="quickCalc">Calculate</button><div class="quickresult" id="quickResult">Enter all three amounts to see an estimate.</div></div></div></section>
+ <footer class="landfoot"><strong>clearrun</strong><span>Plan with a clearer view of your cash.</span><button class="reset openDashboard" style="font-size:10px">Open interactive demo →</button></footer>
+</div>
+<div class="modal" id="authModal" hidden><div class="modalshade" id="modalShade"></div><section class="authdialog" role="dialog" aria-modal="true" aria-labelledby="authTitle"><button class="closemodal" id="closeModal" aria-label="Close">×</button>
+ <div id="signupPanel"><div class="authlogo">↗</div><h2 id="authTitle">Create your ClearRun account</h2><p class="authdesc">Set up a profile to continue to your cash flow workspace.</p><form class="authform" id="signupForm"><label for="signupName">Username</label><input id="signupName" name="username" autocomplete="username" placeholder="e.g. Priya Sharma" required minlength="2"><label for="signupPhone">Phone number</label><input id="signupPhone" name="phone" type="tel" autocomplete="tel" placeholder="+91 98765 43210" pattern="[0-9+\(\) \-]{7,18}" required><label for="signupPassword">Password</label><input id="signupPassword" name="password" type="password" autocomplete="new-password" placeholder="At least 8 characters" minlength="8" required><div class="authmessage" id="authMessage" aria-live="polite"></div><button class="primarybtn authsubmit" type="submit">Create account</button></form><div class="securehint">Your account and forecast are saved securely to your ClearRun workspace. Use a password you do not use elsewhere.</div><div class="authswitch">Already have an account? <button class="authlink" id="switchToSignin">Sign in</button></div></div>
+ <div id="signinPanel" hidden><div class="authlogo">↗</div><h2>Welcome back</h2><p class="authdesc">Sign in with your username or phone number.</p><form class="authform" id="signinForm"><label for="signinIdentity">Username or phone number</label><input id="signinIdentity" name="identity" autocomplete="username" placeholder="Username or phone" required><label for="signinPassword">Password</label><input id="signinPassword" name="password" type="password" autocomplete="current-password" placeholder="Your password" required><div class="authmessage" id="signinMessage" aria-live="polite"></div><button class="primarybtn authsubmit" type="submit">Sign in</button></form><div class="demohint">Your saved account works in this browser. If this is your first visit, create an account first.</div><div style="text-align:center;margin-top:14px"><button class="secondarybtn googlebtn" id="oauthSigninBtn" style="width:100%"><b class="googleG">G</b> Continue with Google</button></div><div class="authswitch">New to ClearRun? <button class="authlink" id="switchToSignup">Create an account</button></div></div>
+ <div id="oauthPanel" hidden><div class="authlogo" style="font:bold 20px Arial;color:#4285f4">G</div><h2>Continue with Google</h2><p class="authdesc">Use your Google account to open your saved cash flow workspace. Sign in is currently limited to approved test accounts.</p><div id="googleButtonHost" class="googlelive"></div><div class="authmessage" id="oauthMessage" aria-live="polite"></div><div class="securehint">Your cash flow workspace is saved securely to your account.</div></div>
+ <div id="authSuccess" class="authsuccess" hidden><div class="successmark">✓</div><h2>You're all set</h2><p id="successText">Your demo profile is ready. Continue to the cash flow dashboard.</p><button class="primarybtn" id="successContinue">Open dashboard&nbsp; →</button></div>
+</section></div>
+<div id="dashboardView" hidden>
+<header class="topbar"><div class="brand"><div class="logo"><svg viewBox="0 0 20 20" fill="none"><path d="M3 13.5 7.2 9.3l3 2.7L17 5.5M12.5 5.5H17v4.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>clearrun</div><div class="righttop"><button id="backHome" class="reset">← Home</button><button id="signOut" class="reset">Sign out</button><span id="userDisplay">Your account</span><div class="avatar" id="userAvatar">?</div></div></header>
+<div class="layout"><aside class="sidebar"><div class="side-label">WORKSPACE</div><button type="button" class="nav" data-view="overview" title="Overview"><span class="ico">⌂</span><span>Overview</span></button><button type="button" class="nav active" data-view="cashflow" title="Cash flow" aria-current="page"><span class="ico">▥</span><span>Cash flow</span></button><button type="button" class="nav" data-view="transactions" title="Transactions"><span class="ico">⇄</span><span>Transactions</span></button><button type="button" class="nav" data-view="invoices" title="Invoices"><span class="ico">▤</span><span>Invoices</span></button><button type="button" class="nav" data-view="settings" title="Settings"><span class="ico">⚙</span><span>Settings</span></button></aside>
+<main class="main"><div class="welcome"><div><div class="eyebrow" id="viewEyebrow">Cash flow overview</div><h1 id="dashGreeting">Welcome to ClearRun</h1><h1 id="viewTitle" hidden></h1><p id="viewSub">Here’s your business liquidity outlook for the next 13 weeks.</p></div><div class="datepill">◷ &nbsp; 24 Oct to 23 Jan 2027</div></div>
+<section class="cards" data-pane="overview cashflow"><div class="card"><div class="cardlabel">Cash available now <span>ⓘ</span></div><div class="cardvalue" id="cashValue">Not added</div><div class="cardfoot"><span class="positive" id="cashStatus">● Add your actual balance</span> · <button id="editCash" class="reset">Set balance</button></div></div><div class="card"><div class="cardlabel">Expected this month <span>↗</span></div><div class="cardvalue" id="expectedValue">Not added</div><div class="cardfoot">From your cash flow entries</div></div><div class="card"><div class="cardlabel">Committed outflows <span>↘</span></div><div class="cardvalue" id="outflowValue">Not added</div><div class="cardfoot">From your cash flow entries</div></div><div class="card"><div class="cardlabel">Lowest projected balance <span>⌁</span></div><div class="cardvalue" id="lowestValue">Not available</div><div class="cardfoot" id="lowestFoot">Add cash flow details to see a forecast</div></div></section>
+<section class="contentgrid" data-pane="cashflow"><div class="panel"><div class="panelhead"><div><h2>Projected cash balance</h2><div class="sub">Weekly outlook based on the values you enter.</div></div><select class="select" id="horizon"><option value="13">Next 13 weeks</option><option value="8">Next 8 weeks</option></select></div><div class="chartwrap"><svg class="chart" id="chart" viewBox="0 0 700 230" preserveAspectRatio="none" aria-label="Cash flow forecast chart"></svg></div><div class="chart-legend"><span><i class="dot baseline"></i>Baseline</span><span><i class="dot projected"></i>With your scenario</span><span id="reserveLegend">Reserve threshold · Not set</span></div><div class="chartnote"><span>✦</span><span><b id="insightTitle">Your forecast is waiting for your data.</b> <span id="insightText">Add your current balance and expected receipts or payments to see your projected cash position.</span></span></div></div>
+<div class="panel scenario"><div class="scenariohead"><h2>Try a scenario</h2><span class="badge">SCENARIO</span></div><p class="scenintro">Change an assumption to see how it could affect your cash. The original forecast stays the same.</p><button class="reset" id="editReserve">Set reserve threshold</button><div class="control"><div class="controltop"><span>Delay the next customer payment</span><span id="delayLabel">0 weeks</span></div><input type="range" id="delay" min="0" max="6" value="0"><div class="rangescale"><span>On time</span><span>6 weeks late</span></div></div><div class="control"><div class="controltop"><span>Unexpected expense</span><span id="expenseLabel">₹0</span></div><input type="range" id="expense" min="0" max="200000" step="10000" value="0"><div class="rangescale"><span>None</span><span>₹2,00,000</span></div></div><div class="control"><div class="controltop"><span>Sales change</span><span id="salesLabel">0%</span></div><input type="range" id="sales" min="-50" max="20" step="5" value="0"><div class="rangescale"><span>−50%</span><span>+20%</span></div></div><div class="impact"><div class="impacttitle">Scenario impact</div><div class="impactrow"><span>Lowest balance</span><strong id="impactLowest">Not available</strong></div><div class="impactrow"><span>Reserve threshold crossed</span><strong id="impactShortfall">Not set</strong></div><div class="impactrow"><span>Change from baseline</span><strong id="impactDelta">Not available</strong></div></div><div style="display:flex;justify-content:flex-end;margin-top:14px"><button class="reset" id="reset">Reset scenario ↺</button></div></div></section>
+<section class="lower" data-pane="cashflow"><div class="panel"><div class="panelhead"><div><h2>Upcoming cash events</h2><div class="sub">Add expected receipts and planned payments</div></div><button class="primarybtn" id="addFlowToggle" type="button">Add cash flow</button></div><form class="flowform" id="flowForm" hidden><label>What is it?<input id="flowName" required maxlength="50" placeholder="Customer invoice, rent, payroll"></label><label>Type<select id="flowType"><option value="in">Money coming in</option><option value="out">Money going out</option></select></label><label>Amount in rupees<input id="flowAmount" type="number" min="1" step="1" required placeholder="0"></label><label>Due in<select id="flowWeek"><option value="0">This week</option><option value="1">1 week</option><option value="2">2 weeks</option><option value="3">3 weeks</option><option value="4">4 weeks</option><option value="5">5 weeks</option><option value="6">6 weeks</option><option value="7">7 weeks</option><option value="8">8 weeks</option><option value="9">9 weeks</option><option value="10">10 weeks</option><option value="11">11 weeks</option><option value="12">12 weeks</option></select></label><button class="primarybtn" type="submit">Save cash flow</button><button class="reset" id="cancelFlow" type="button">Cancel</button></form><div class="list" id="events"></div></div><div class="panel obligations"><h2>Upcoming obligations</h2><div class="sub">Payments you have entered, due in the next 30 days</div><div id="obligationsList"><p class="emptyhint">No payments added yet.</p></div><div class="obtotal"><span>Total committed</span><span id="outflowTotal">Not added</span></div></div></section>
+<section class="viewgrid" data-pane="overview" hidden>
+<div class="panel"><div class="panelhead"><div><h2>Coming up next</h2><div class="sub">Your next receipts and payments, soonest first</div></div><button class="reset" type="button" data-goto="transactions">See all →</button></div><div class="list" id="ovEvents"></div></div>
+<div class="panel obligations"><h2>Cash health</h2><div class="sub">Based on your baseline forecast</div><div id="ovHealth"></div><div style="display:flex;justify-content:flex-end;margin-top:14px"><button class="primarybtn" type="button" data-goto="cashflow">Open full forecast</button></div></div>
+</section>
+<section data-pane="transactions" hidden>
+<div class="cards3"><div class="card"><div class="cardlabel">Money in <span>↗</span></div><div class="cardvalue" id="txIn">₹0</div><div class="cardfoot" id="txInFoot"></div></div><div class="card"><div class="cardlabel">Money out <span>↘</span></div><div class="cardvalue" id="txOut">₹0</div><div class="cardfoot" id="txOutFoot"></div></div><div class="card"><div class="cardlabel">Net over 13 weeks <span>⇄</span></div><div class="cardvalue" id="txNet">₹0</div><div class="cardfoot">Money in minus money out</div></div></div>
+<div class="panel"><div class="panelhead"><div><h2>All transactions</h2><div class="sub" id="txCount"></div></div><button class="primarybtn" type="button" data-add="out">Add transaction</button></div><div class="tools"><div class="chips"><button class="chip on" type="button" data-filter="all">All</button><button class="chip" type="button" data-filter="in">Money in</button><button class="chip" type="button" data-filter="out">Money out</button></div><input class="search" id="txSearch" type="search" placeholder="Search by name" aria-label="Search transactions"></div><div class="list" id="txList"></div></div>
+</section>
+<section data-pane="invoices" hidden>
+<div class="cards3"><div class="card"><div class="cardlabel">Total outstanding <span>▤</span></div><div class="cardvalue" id="invTotal">₹0</div><div class="cardfoot" id="invCount"></div></div><div class="card"><div class="cardlabel">Due this week <span>◷</span></div><div class="cardvalue" id="invNow">₹0</div><div class="cardfoot">Worth following up first</div></div><div class="card"><div class="cardlabel">Due within 4 weeks <span>↗</span></div><div class="cardvalue" id="invSoon">₹0</div><div class="cardfoot">Includes this week</div></div></div>
+<div class="panel"><div class="panelhead"><div><h2>Expected from customers</h2><div class="sub">Mark an invoice received when the money arrives. It is added to your cash balance.</div></div><button class="primarybtn" type="button" id="invNewBtn">Add invoice</button></div>
+<form class="invform" id="invForm" hidden>
+<div class="scanbox"><label class="scanbtn secondarybtn" for="invFile">📷 Scan invoice photo</label><input id="invFile" type="file" accept="image/jpeg,image/png,image/webp" hidden><span class="scanhint" id="invScanMsg" aria-live="polite">Upload a clear JPG, PNG or WebP photo and the fields below fill in. Check every field before saving.</span></div>
+<label>Invoice number<input id="invNumber" maxlength="40" placeholder="INV-1024"></label>
+<label>Customer (who owes you)<input id="invCustomer" maxlength="80" required placeholder="Apex Auto"></label>
+<label>Customer email (for reminders)<input id="invEmail" type="email" maxlength="120" placeholder="accounts@customer.com"></label>
+<label>Amount (₹)<input id="invAmount" type="number" min="1" step="0.01" required placeholder="500000"></label>
+<label>Invoice date<input id="invIssue" type="date"></label>
+<label>Due date<input id="invDue" type="date" required></label>
+<label class="invcheck" style="display:none!important" aria-hidden="true"><input id="invRemind" type="checkbox"> Send automatic payment reminders to this customer</label>
+<div class="invbtns"><button class="primarybtn" type="submit">Save invoice</button><button class="secondarybtn" type="button" id="invCancel">Cancel</button></div>
+</form>
+<div class="setmsg" id="invMsg" aria-live="polite" style="padding:0 20px"></div>
+<div class="list" id="invList"></div><div class="list" id="invLegacy"></div><div class="list" id="invPaid"></div></div>
+</section>
+<section class="setgrid" data-pane="settings" hidden>
+<div class="panel obligations"><h2>Account</h2><div class="sub" id="setMode"></div><div style="margin-top:8px"><div class="obrow"><span>Name</span><strong id="setName"></strong></div><div class="obrow"><span>Contact</span><strong id="setContact"></strong></div></div><div style="margin-top:16px"><button class="secondarybtn" type="button" id="setSignOut">Sign out</button></div></div>
+<div class="panel obligations"><h2>Cash position</h2><div class="sub">These values feed every card and chart.</div>
+<form class="setrow" id="setCashForm"><label>Current cash balance (₹)<input id="setCash" type="number" min="0" step="1" placeholder="Enter amount"></label><button class="primarybtn" type="submit">Save</button></form>
+<form class="setrow" id="setReserveForm"><label>Reserve threshold (₹)<input id="setReserve" type="number" min="0" step="1" placeholder="Leave empty to turn off"></label><button class="primarybtn" type="submit">Save</button></form>
+<div class="setmsg" id="setMsg" aria-live="polite"></div></div>
+<div class="panel obligations"><h2>Payment reminders</h2><div class="sub">Emails go to your customer in your business name. Replies come to you. Interest wording appears only if you add your Udyam number and the RBI Bank Rate.</div>
+<form id="setRemForm" class="remform"><label>Business name<input id="setBizName" maxlength="80" placeholder="Sri Tools Pvt Ltd"></label><label>Your contact email (replies and test emails)<input id="setContactEmail" type="email" maxlength="120" placeholder="you@business.com"></label><label>Udyam registration number (optional)<input id="setUdyam" maxlength="40" placeholder="UDYAM-KA-00-0000000"></label><label>Current RBI Bank Rate % (optional)<input id="setBankRate" type="number" min="0" max="30" step="0.01" placeholder="Check rbi.org.in"></label><button class="primarybtn" type="submit">Save</button></form>
+<div class="setmsg" id="setRemMsg" aria-live="polite"></div><div class="sub" style="margin-top:8px">MSMED interest applies only to registered Udyam sellers: three times the Bank Rate, compounded monthly, from the agreed date (at most 45 days after delivery). ClearRun’s figure is an estimate. Confirm with your accountant before relying on it.</div></div>
+<div class="panel obligations"><h2>Forecast data</h2><div class="sub">Reset the what-if sliders, or clear everything you have entered.</div><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px"><button class="secondarybtn" type="button" id="setResetScenario">Reset scenario</button><button class="dangerbtn" type="button" id="setClear">Clear all entries</button></div></div>
+</section>
+<div class="footnote" id="dataFootnote">Your forecast uses only the cash balance and cash flows you enter. Forecasts are estimates, not guarantees.</div></main></div></div></div>
+<script>
+let cashStart=0,cashProvided=false,flowItems=[],reserve=0,reserveProvided=false,demoMode=false;
+const baseIn=Array(13).fill(0),baseOut=Array(13).fill(0);
+function buildFlowArrays(){baseIn.fill(0);baseOut.fill(0);flowItems.forEach(item=>{const week=Math.min(12,Number(item.week)||0);(item.type==='in'?baseIn:baseOut)[week]+=Number(item.amount)||0})}
+const inr=n=>'₹'+Math.round(Math.abs(n)).toLocaleString('en-IN');
+function calc(){let delay=+document.getElementById('delay').value,expense=+document.getElementById('expense').value,sales=+document.getElementById('sales').value;let ins=baseIn.map(x=>x*(1+sales/100)),outs=[...baseOut];if(delay){const next=ins.findIndex(v=>v>0);if(next!==-1){const moved=ins[next];ins[next]=0;if(next+delay<=12)ins[next+delay]+=moved}}outs[1]+=expense;let bal=cashStart,arr=[bal],baseline=[cashStart];for(let i=0;i<13;i++){bal+=ins[i]-outs[i];arr.push(bal);baseline.push(baseline[i]+baseIn[i]-baseOut[i])}return {arr,baseline,ins,outs,low:Math.min(...arr),baseLow:Math.min(...baseline)}}
+function draw(){const {arr,baseline,low,baseLow}=calc(),horizon=+document.getElementById('horizon').value,hasEvents=flowItems.length>0,monthlyIn=baseIn.slice(0,5).reduce((a,b)=>a+b,0),monthlyOut=baseOut.slice(0,5).reduce((a,b)=>a+b,0);document.getElementById('cashValue').textContent=cashProvided?inr(cashStart):'Not added';document.getElementById('cashStatus').textContent=cashProvided?'● Actual balance entered':'● Add your actual balance';document.getElementById('expectedValue').textContent=hasEvents?inr(monthlyIn):'Not added';document.getElementById('outflowValue').textContent=hasEvents?inr(monthlyOut):'Not added';document.getElementById('delayLabel').textContent=(+document.getElementById('delay').value)+' week'+(+document.getElementById('delay').value===1?'':'s');document.getElementById('expenseLabel').textContent=inr(+document.getElementById('expense').value);const sv=+document.getElementById('sales').value;document.getElementById('salesLabel').textContent=(sv>0?'+':'')+sv+'%';document.getElementById('reserveLegend').textContent=reserveProvided?'Reserve threshold · '+inr(reserve):'Reserve threshold · Not set';if(!cashProvided){document.getElementById('chart').innerHTML='<text x="350" y="105" text-anchor="middle" font-size="14" fill="#78857c">Add your current cash balance to see a forecast</text>';document.getElementById('lowestValue').textContent='Not available';document.getElementById('lowestFoot').textContent='A starting balance is needed';document.getElementById('impactLowest').textContent='Not available';document.getElementById('impactShortfall').textContent='Not available';document.getElementById('impactDelta').textContent='Not available';document.getElementById('insightTitle').textContent='Your forecast is waiting for your data.';document.getElementById('insightText').textContent=hasEvents?'Cash flow entries are saved. Add your current balance to project your cash position.':'Add your current balance and expected receipts or payments to see your projected cash position.';return}let values=arr.slice(0,horizon+1),bvals=baseline.slice(0,horizon+1),min=Math.min(...values,...bvals),max=Math.max(...values,...bvals);if(reserveProvided){min=Math.min(min,reserve);max=Math.max(max,reserve)}let pad=(max-min)*.13||1;min-=pad;max+=pad;const W=700,H=230,L=46,R=10,T=14,B=26,iw=W-L-R,ih=H-T-B,x=i=>L+i*iw/horizon,y=v=>T+(max-v)*ih/(max-min),path=a=>a.map((v,i)=>(i?'L':'M')+x(i)+','+y(v)).join(' ');let svg='<defs><linearGradient id="fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#18734f" stop-opacity=".16"/><stop offset="1" stop-color="#18734f" stop-opacity="0"/></linearGradient></defs>';[0,1,2,3].forEach(i=>{const value=min+(max-min)*i/3;svg+=`<line x1="${L}" y1="${y(value)}" x2="${W-R}" y2="${y(value)}" stroke="#edf0ed"/><text x="${L-7}" y="${y(value)+4}" text-anchor="end" font-size="10" fill="#8a968e">${Math.round(value/1000)}k</text>`});if(reserveProvided)svg+=`<line x1="${L}" y1="${y(reserve)}" x2="${W-R}" y2="${y(reserve)}" stroke="#e4b555" stroke-dasharray="5 5"/>`;svg+=`<path d="${path(bvals)}" fill="none" stroke="#aab7af" stroke-width="2" stroke-dasharray="5 5"/><path d="${path(values)} L${x(horizon)},${H-B} L${L},${H-B} Z" fill="url(#fill)"/><path d="${path(values)}" fill="none" stroke="#18734f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>`;values.forEach((value,i)=>svg+=`<circle cx="${x(i)}" cy="${y(value)}" r="3" fill="#fff" stroke="#18734f" stroke-width="2"><title>Week ${i}: ${inr(value)}</title></circle>`);for(let i=0;i<=horizon;i+=Math.ceil(horizon/6))svg+=`<text x="${x(i)}" y="${H-6}" text-anchor="middle" font-size="10" fill="#8a968e">${i===0?'Today':'Wk '+i}</text>`;document.getElementById('chart').innerHTML=svg;document.getElementById('lowestValue').textContent=(low<0?'−':'')+inr(low);const risky=reserveProvided&&low<reserve;document.getElementById('lowestFoot').textContent=!reserveProvided?'Set a reserve threshold to check':risky?'Below your reserve threshold':'Above your reserve threshold';document.getElementById('impactLowest').textContent=(low<0?'−':'')+inr(low);document.getElementById('impactShortfall').textContent=!reserveProvided?'Not set':risky?(arr.findIndex(value=>value<reserve)===0?'Yes · already today':'Yes · week '+arr.findIndex(value=>value<reserve)):'No';document.getElementById('reserveLegend').textContent=reserveProvided?'Reserve threshold · '+inr(reserve):'Reserve threshold · Not set';const delta=low-baseLow;document.getElementById('impactDelta').textContent=(delta<0?'−':'+')+inr(delta);document.getElementById('impactDelta').style.color=delta<0?'#bd6b2d':'var(--green)';document.getElementById('insightTitle').textContent=!reserveProvided?'Your cash forecast is ready.':risky?'Cash could fall below your reserve threshold.':'Cash stays above your reserve threshold.';document.getElementById('insightText').textContent=!reserveProvided?'This forecast uses the current balance and cash flow entries you provided. Set a reserve threshold to check for a shortfall.':risky?(arr.findIndex(value=>value<reserve)===0?'Your balance today is already below your reserve. Collect overdue invoices or move a payment later to recover.':'The current scenario falls below your reserve around week '+arr.findIndex(value=>value<reserve)+'. Review payment timing or costs.'):'This forecast uses the balance, reserve and cash flow entries you provided.';}
+function renderEvents(){const list=document.getElementById('events'),next=flowItems;list.innerHTML=next.length?next.map(item=>`<div class="event"><div class="eventicon ${item.type==='out'?'out':''}">${item.type==='in'?'↗':'↘'}</div><div><div class="eventname">${escapeHtml(item.name)}</div><div class="eventmeta">${item.type==='in'?'Expected receipt':'Planned payment'} · ${Number(item.week)===0?'this week':Number(item.week)+' week'+(Number(item.week)===1?'':'s')}</div></div><div class="amount ${item.type}">${item.type==='in'?'+':'−'}${inr(item.amount)} <button class="reset removeFlow" data-id="${item.id}" aria-label="Remove ${escapeHtml(item.name)}">×</button></div></div>`).join(''):'<p class="emptyhint">No cash flow entries yet. Add an expected receipt or planned payment to build your forecast.</p>';document.querySelectorAll('.removeFlow').forEach(button=>button.addEventListener('click',()=>{flowItems=flowItems.filter(item=>item.id!==button.dataset.id);buildFlowArrays();saveAccountState();renderEvents();draw()}));const payments=flowItems.filter(item=>item.type==='out'&&Number(item.week)<=4),ob=document.getElementById('obligationsList');ob.innerHTML=payments.length?payments.map(item=>`<div class="obrow"><span>${escapeHtml(item.name)}</span><strong>${inr(item.amount)}</strong></div>`).join(''):'<p class="emptyhint">No payments added yet.</p>';document.getElementById('outflowTotal').textContent=payments.length?inr(payments.reduce((sum,item)=>sum+Number(item.amount),0)):'Not added'}
+function escapeHtml(value){return String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]))}
+['delay','expense','sales','horizon'].forEach(id=>document.getElementById(id).addEventListener('input',()=>{draw();saveAccountState()}));document.getElementById('reset').addEventListener('click',()=>{document.getElementById('delay').value=0;document.getElementById('expense').value=0;document.getElementById('sales').value=0;draw();saveAccountState()});renderEvents();draw();
+function enterDashboard(){document.getElementById('landingView').hidden=true;document.getElementById('dashboardView').hidden=false;window.scrollTo({top:0,behavior:'auto'});draw()}
+function enterDemoDashboard(name='Sample business'){demoMode=true;currentUser=null;cashStart=480000;cashProvided=true;reserve=150000;reserveProvided=true;flowItems=[{id:'demo-in-1',name:'Customer invoice',type:'in',amount:185000,week:0},{id:'demo-in-2',name:'Customer invoice',type:'in',amount:90000,week:1},{id:'demo-in-3',name:'Customer invoice',type:'in',amount:50000,week:2},{id:'demo-out-1',name:'Payroll',type:'out',amount:180000,week:1},{id:'demo-out-2',name:'Supplier payment',type:'out',amount:105000,week:2},{id:'demo-out-3',name:'Operating costs',type:'out',amount:72000,week:3},{id:'demo-out-4',name:'Loan instalment',type:'out',amount:55000,week:4},{id:'demo-in-4',name:'Customer invoice',type:'in',amount:185000,week:5},{id:'demo-out-5',name:'Payroll',type:'out',amount:180000,week:5}];for(const [id,value] of Object.entries({delay:0,expense:0,sales:0,horizon:13}))document.getElementById(id).value=value;buildFlowArrays();renderEvents();document.getElementById('dashGreeting').textContent=name==='Sample business'?'Sample cash flow dashboard':name+' · Demo account';document.getElementById('userDisplay').textContent=name==='Sample business'?'Sample business':name+' · Demo';document.getElementById('userAvatar').textContent=name==='Sample business'?'SB':'PD';document.getElementById('dataFootnote').textContent='Sample figures for demonstration only. Add your own data after signing in.';closeAuth();enterDashboard()}
+document.querySelectorAll('.openDashboard').forEach(button=>button.addEventListener('click',()=>currentUser?finishSignIn(currentUser.username):enterDemoDashboard()));
+document.getElementById('backHome').addEventListener('click',()=>{document.getElementById('dashboardView').hidden=true;document.getElementById('landingView').hidden=false;window.scrollTo({top:0,behavior:'instant'})});
+document.getElementById('scrollQuick').addEventListener('click',()=>document.getElementById('quickCheck').scrollIntoView({behavior:'smooth'}));
+function quickCheck(){const fields=['qCash','qIn','qOut'].map(id=>document.getElementById(id).value),result=document.getElementById('quickResult');if(fields.some(value=>value==='')){result.textContent='Enter all three amounts to see an estimate.';result.style.color='#45614e';saveAccountState();return}const [cash,inc,out]=fields.map(Number),total=cash+inc-out;result.textContent=total<0?'Estimated shortfall after 30 days: '+inr(total)+'. Review payment timing or costs.':'Estimated cash after 30 days: '+inr(total)+'.';result.style.color=total<0?'#b95645':'#45614e';saveAccountState()}
+document.getElementById('quickCalc').addEventListener('click',quickCheck);['qCash','qIn','qOut'].forEach(id=>document.getElementById(id).addEventListener('input',quickCheck));document.querySelectorAll('.landingbar a').forEach(a=>a.addEventListener('click',event=>{event.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'})}));
+let accountName='';let currentUser=null;let lastWorkspaceUpdatedAt='';let saveTimer=null;let syncingRemote=false;const modal=document.getElementById('authModal');
+async function apiRequest(path,method='GET',body){if(location.protocol==='file:')throw new Error('Sign in needs the ClearRun server. Run "npm run dev" in the clearrun-clean folder and open http://localhost:5500 instead of the index.html file.');const response=await fetch(path,{method,credentials:'same-origin',headers:body?{'Content-Type':'application/json'}:{},body:body?JSON.stringify(body):undefined});let data={};try{data=await response.json()}catch{}if(!response.ok)throw new Error(data.error||'The request could not be completed.');return data}
+function accountState(){return {cashStart,cashProvided,flowItems,reserve,reserveProvided,delay:document.getElementById('delay').value,expense:document.getElementById('expense').value,sales:document.getElementById('sales').value,horizon:document.getElementById('horizon').value,qCash:document.getElementById('qCash').value,qIn:document.getElementById('qIn').value,qOut:document.getElementById('qOut').value}}
+function saveAccountState(){if(!currentUser||demoMode||syncingRemote)return;clearTimeout(saveTimer);saveTimer=setTimeout(async()=>{saveTimer=null;try{const saved=await apiRequest('/api/workspace','PUT',{state:accountState()});lastWorkspaceUpdatedAt=saved.updatedAt||lastWorkspaceUpdatedAt}catch(error){console.warn('Could not sync workspace:',error.message)}},300)}
+function applyAccountState(state={}){syncingRemote=true;cashProvided=state.cashProvided===true;cashStart=cashProvided&&Number.isFinite(Number(state.cashStart))?Number(state.cashStart):0;flowItems=Array.isArray(state.flowItems)?state.flowItems:[];reserveProvided=state.reserveProvided===true;reserve=reserveProvided&&Number.isFinite(Number(state.reserve))?Number(state.reserve):0;for(const id of ['delay','expense','sales','horizon','qCash','qIn','qOut'])document.getElementById(id).value=state[id]!==undefined?state[id]:({delay:0,expense:0,sales:0,horizon:13,qCash:'',qIn:'',qOut:''}[id]);buildFlowArrays();renderEvents();quickCheck();draw();syncingRemote=false}
+async function loadAccountState(){const saved=await apiRequest('/api/workspace');lastWorkspaceUpdatedAt=saved.updatedAt||'';applyAccountState(saved.state||{})}
+function openAuth(panel){modal.hidden=false;document.getElementById('signupPanel').hidden=panel!=='signup';document.getElementById('signinPanel').hidden=panel!=='signin';document.getElementById('oauthPanel').hidden=panel!=='oauth';document.getElementById('authSuccess').hidden=true;document.getElementById('authMessage').textContent='';document.getElementById('signinMessage').textContent='';if(panel==='signup')setTimeout(()=>document.getElementById('signupName').focus(),50);if(panel==='signin')setTimeout(()=>document.getElementById('signinIdentity').focus(),50);if(panel==='oauth'){document.getElementById('oauthMessage').textContent='';setTimeout(initGoogleIdentity,80)}}function closeAuth(){modal.hidden=true}
+document.getElementById('openSignup').addEventListener('click',()=>openAuth('signup'));document.getElementById('openSigninInline').addEventListener('click',()=>openAuth('signin'));document.getElementById('switchToSignin').addEventListener('click',()=>openAuth('signin'));document.getElementById('switchToSignup').addEventListener('click',()=>openAuth('signup'));document.getElementById('oauthBtn').addEventListener('click',()=>openAuth('oauth'));document.getElementById('oauthSigninBtn').addEventListener('click',()=>openAuth('oauth'));document.getElementById('closeModal').addEventListener('click',closeAuth);document.getElementById('modalShade').addEventListener('click',closeAuth);document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!modal.hidden)closeAuth()});
+function showSuccess(name){finishSignIn(name)}
+async function passwordHash(password,salt){const material=await crypto.subtle.importKey('raw',new TextEncoder().encode(password),'PBKDF2',false,['deriveBits']);const bits=await crypto.subtle.deriveBits({name:'PBKDF2',salt,iterations:120000,hash:'SHA-256'},material,256);return Array.from(new Uint8Array(bits),b=>b.toString(16).padStart(2,'0')).join('')}
+const hexBytes=hex=>Uint8Array.from(hex.match(/.{2}/g)||[],byte=>parseInt(byte,16));
+document.getElementById('signupForm').addEventListener('submit',async event=>{event.preventDefault();if(!event.currentTarget.reportValidity())return;const message=document.getElementById('authMessage');try{const userData=await apiRequest('/api/auth/signup','POST',{username:document.getElementById('signupName').value.trim(),phone:document.getElementById('signupPhone').value,password:document.getElementById('signupPassword').value});demoMode=false;currentUser=userData.user;await finishSignIn(currentUser.username)}catch(error){message.textContent=error.message||'Could not create the account. Please try again.'}});
+document.getElementById('signinForm').addEventListener('submit',async event=>{event.preventDefault();if(!event.currentTarget.reportValidity())return;const message=document.getElementById('signinMessage');try{const userData=await apiRequest('/api/auth/signin','POST',{identity:document.getElementById('signinIdentity').value.trim(),password:document.getElementById('signinPassword').value});demoMode=false;currentUser=userData.user;await finishSignIn(currentUser.username)}catch(error){message.textContent=error.message||'Could not sign in. Please try again.'}});
+async function finishSignIn(name){if(!currentUser){openAuth('signin');return}demoMode=false;accountName=name;try{await loadAccountState()}catch(error){alert(error.message);return}document.getElementById('dashGreeting').textContent='Good evening, '+name;document.getElementById('userDisplay').textContent=name;document.getElementById('userAvatar').textContent=name.split(/\s+/).map(part=>part[0]).join('').slice(0,2).toUpperCase();document.getElementById('dataFootnote').textContent='Your forecast and team workspace are saved securely to the shared database.';closeAuth();enterDashboard()}
+const GOOGLE_CLIENT_ID='75724033338-19u3l9mp9hdb8p6apcut2vih3up0j2tk.apps.googleusercontent.com';
+let googleButtonRendered=false,googleJwksCache=null,googleJwksFetchedAt=0,googleInitAttempts=0;
+function initGoogleIdentity(){const host=document.getElementById('googleButtonHost');if(!host||googleButtonRendered)return;if(!window.google?.accounts?.id){if(googleInitAttempts++<20)setTimeout(initGoogleIdentity,350);else document.getElementById('oauthMessage').textContent='Google sign in could not load. Check your connection and try again.';return}window.google.accounts.id.initialize({client_id:GOOGLE_CLIENT_ID,callback:handleGoogleCredential,auto_select:false,cancel_on_tap_outside:true});window.google.accounts.id.renderButton(host,{type:'standard',theme:'outline',size:'large',text:'continue_with',shape:'rectangular',width:Math.min(360,Math.max(240,host.clientWidth||360)),logo_alignment:'left'});googleButtonRendered=true}
+function decodeBase64Url(value){const normalized=value.replace(/-/g,'+').replace(/_/g,'/');const binary=atob(normalized+'='.repeat((4-normalized.length%4)%4));return Uint8Array.from(binary,char=>char.charCodeAt(0))}
+function decodeJwtPart(value){return JSON.parse(new TextDecoder().decode(decodeBase64Url(value)))}
+async function loadGoogleJwks(force=false){if(!force&&googleJwksCache&&Date.now()-googleJwksFetchedAt<15*60*1000)return googleJwksCache;const response=await fetch('https://www.googleapis.com/oauth2/v3/certs',{cache:'no-store'});if(!response.ok)throw new Error('Google could not verify this sign in. Try again.');googleJwksCache=await response.json();googleJwksFetchedAt=Date.now();return googleJwksCache}
+async function verifyGoogleCredential(token){const parts=String(token||'').split('.');if(parts.length!==3)throw new Error('Google returned an invalid sign in response.');const header=decodeJwtPart(parts[0]),payload=decodeJwtPart(parts[1]);if(header.alg!=='RS256'||!header.kid)throw new Error('Google returned an unsupported sign in response.');const now=Math.floor(Date.now()/1000),audiences=Array.isArray(payload.aud)?payload.aud:[payload.aud];if(!['accounts.google.com','https://accounts.google.com'].includes(payload.iss)||!audiences.includes(GOOGLE_CLIENT_ID)||(payload.azp&&payload.azp!==GOOGLE_CLIENT_ID)||!payload.sub||!payload.email||payload.email_verified!==true||!Number.isFinite(payload.exp)||payload.exp<=now||!Number.isFinite(payload.iat)||payload.iat>now+300)throw new Error('Google could not verify this account. Try again.');let jwks=await loadGoogleJwks(),jwk=jwks.keys?.find(key=>key.kid===header.kid);if(!jwk){jwks=await loadGoogleJwks(true);jwk=jwks.keys?.find(key=>key.kid===header.kid)}if(!jwk)throw new Error('Google could not verify this account. Try again.');const publicKey=await crypto.subtle.importKey('jwk',jwk,{name:'RSASSA-PKCS1-v1_5',hash:'SHA-256'},false,['verify']),signed=new TextEncoder().encode(parts[0]+'.'+parts[1]),valid=await crypto.subtle.verify('RSASSA-PKCS1-v1_5',publicKey,decodeBase64Url(parts[2]),signed);if(!valid)throw new Error('Google could not verify this account. Try again.');return payload}
+async function handleGoogleCredential(response){const message=document.getElementById('oauthMessage');message.textContent='';try{const result=await apiRequest('/api/auth/google','POST',{credential:response?.credential});demoMode=false;currentUser=result.user;await finishSignIn(currentUser.username)}catch(error){message.textContent=error.message||'Google sign in failed. Please try again.'}}
+document.getElementById('successContinue').addEventListener('click',()=>finishSignIn(accountName));document.getElementById('editCash').addEventListener('click',()=>{const value=prompt('Enter your current cash balance in rupees',cashProvided?String(cashStart):'');if(value===null)return;if(value.trim()===''){alert('Enter your current cash balance.');return}const parsed=Number(value);if(!Number.isFinite(parsed)||parsed<0){alert('Enter a valid amount of zero or more.');return}cashStart=parsed;cashProvided=true;draw();saveAccountState()});document.getElementById('editReserve').addEventListener('click',()=>{const value=prompt('Enter the minimum cash balance you want to keep in rupees',reserveProvided?String(reserve):'');if(value===null)return;if(value.trim()===''){reserveProvided=false;reserve=0}else{const parsed=Number(value);if(!Number.isFinite(parsed)||parsed<0){alert('Enter a valid amount of zero or more.');return}reserve=parsed;reserveProvided=true}draw();saveAccountState()});document.getElementById('addFlowToggle').addEventListener('click',()=>{const form=document.getElementById('flowForm');form.hidden=!form.hidden;if(!form.hidden)document.getElementById('flowName').focus()});document.getElementById('cancelFlow').addEventListener('click',()=>{document.getElementById('flowForm').reset();document.getElementById('flowForm').hidden=true});document.getElementById('flowForm').addEventListener('submit',event=>{event.preventDefault();if(!event.currentTarget.reportValidity())return;flowItems.push({id:crypto.randomUUID?crypto.randomUUID():Date.now().toString(36),name:document.getElementById('flowName').value.trim(),type:document.getElementById('flowType').value,amount:Number(document.getElementById('flowAmount').value),week:Number(document.getElementById('flowWeek').value)});buildFlowArrays();event.currentTarget.reset();event.currentTarget.hidden=true;renderEvents();draw();saveAccountState()});document.getElementById('signOut').addEventListener('click',async()=>{if(currentUser&&!demoMode){try{await flushSave()}catch(error){console.warn('Could not save before sign out:',error.message)}}try{await apiRequest('/api/session','DELETE')}catch{}currentUser=null;demoMode=false;lastWorkspaceUpdatedAt='';applyAccountState({});document.getElementById('dashboardView').hidden=true;document.getElementById('landingView').hidden=false;window.scrollTo({top:0,behavior:'instant'})});
+async function restoreServerSession(){try{const result=await apiRequest('/api/session');currentUser=result.user;await finishSignIn(currentUser.username)}catch{}}
+setInterval(async()=>{if(!currentUser||demoMode||syncingRemote||saveTimer)return;try{const latest=await apiRequest('/api/workspace');if(latest.updatedAt&&latest.updatedAt!==lastWorkspaceUpdatedAt){lastWorkspaceUpdatedAt=latest.updatedAt;applyAccountState(latest.state||{})}}catch{}},4000);
+/* ===== Sidebar views: Overview, Cash flow, Transactions, Invoices, Settings ===== */
+let activeView='cashflow',txFilter='all';
+const VIEWS={overview:{eyebrow:'Overview',title:'Overview',sub:'A quick look at where your cash stands.'},cashflow:{eyebrow:'Cash flow overview',sub:'Here’s your business liquidity outlook for the next 13 weeks.'},transactions:{eyebrow:'Transactions',title:'Transactions',sub:'Every receipt and payment you have entered.'},invoices:{eyebrow:'Invoices',title:'Invoices',sub:'Money your customers owe you and when you expect it.'},settings:{eyebrow:'Settings',title:'Settings',sub:'Your account, balance and forecast data.'}};
+const weekLabel=w=>Number(w)===0?'this week':Number(w)+' week'+(Number(w)===1?'':'s');
+const money=n=>(n<0?'−':'')+inr(n);
+const sumOf=list=>list.reduce((total,item)=>total+(Number(item.amount)||0),0);
+function sortedFlows(){return flowItems.map((item,index)=>({item,index})).sort((a,b)=>(Number(a.item.week)-Number(b.item.week))||(a.index-b.index)).map(entry=>entry.item)}
+function eventRow(item,removable){const out=item.type==='out';return `<div class="event"><div class="eventicon ${out?'out':''}">${out?'↘':'↗'}</div><div><div class="eventname">${escapeHtml(item.name)}</div><div class="eventmeta">${out?'Planned payment':'Expected receipt'} · ${weekLabel(item.week)}</div></div><div class="amount ${item.type}">${out?'−':'+'}${inr(item.amount)}${removable?` <button class="reset" type="button" data-remove="${escapeHtml(item.id)}" aria-label="Remove ${escapeHtml(item.name)}">×</button>`:''}</div></div>`}
+function invoiceRow(item){const id=escapeHtml(item.id);return `<div class="event"><div class="eventicon">↗</div><div><div class="eventname">${escapeHtml(item.name)}</div><div class="eventmeta">Expected · ${weekLabel(item.week)}</div></div><div class="amount in"><div class="invact"><span>+${inr(item.amount)}</span><button class="secondarybtn mini" type="button" data-received="${id}">Mark received</button><button class="reset" type="button" data-remove="${id}" aria-label="Remove ${escapeHtml(item.name)}">×</button></div></div></div>`}
+function setView(view){if(!VIEWS[view])view='cashflow';activeView=view;document.querySelectorAll('.nav[data-view]').forEach(button=>{const on=button.dataset.view===view;button.classList.toggle('active',on);if(on)button.setAttribute('aria-current','page');else button.removeAttribute('aria-current')});document.querySelectorAll('[data-pane]').forEach(el=>{el.hidden=!el.dataset.pane.split(' ').includes(view)});const meta=VIEWS[view],ownTitle=!!meta.title,title=document.getElementById('viewTitle');document.getElementById('dashGreeting').hidden=ownTitle;title.hidden=!ownTitle;title.textContent=meta.title||'';document.getElementById('viewEyebrow').textContent=meta.eyebrow;document.getElementById('viewSub').textContent=meta.sub;if(view==='settings')fillSettings();renderViews();window.scrollTo({top:0,behavior:'auto'})}
+function renderOverview(){const next=sortedFlows().slice(0,6);document.getElementById('ovEvents').innerHTML=next.length?next.map(item=>eventRow(item,false)).join(''):'<p class="emptyhint">Nothing coming up yet. Add a receipt or a payment to get started.</p>';const inTotal=sumOf(flowItems.filter(i=>i.type==='in')),outTotal=sumOf(flowItems.filter(i=>i.type==='out')),low=calc().baseLow,status=!cashProvided?'Add your balance':!reserveProvided?'Reserve not set':low<reserve?'Below reserve':'Above reserve',statusColor=cashProvided&&reserveProvided&&low<reserve?'#b95645':'var(--ink)';document.getElementById('ovHealth').innerHTML=`<div class="obrow"><span>Lowest projected balance</span><strong>${cashProvided?money(low):'Add your balance'}</strong></div><div class="obrow"><span>Reserve check</span><strong style="color:${statusColor}">${status}</strong></div><div class="obrow"><span>Expected receipts</span><strong>${inr(inTotal)}</strong></div><div class="obrow"><span>Planned payments</span><strong>${inr(outTotal)}</strong></div><div class="obtotal"><span>Net change</span><span>${money(inTotal-outTotal)}</span></div>`}
+function renderTransactions(){const query=document.getElementById('txSearch').value.trim().toLowerCase(),all=sortedFlows(),shown=all.filter(item=>(txFilter==='all'||item.type===txFilter)&&(!query||String(item.name).toLowerCase().includes(query))),ins=all.filter(i=>i.type==='in'),outs=all.filter(i=>i.type==='out');document.getElementById('txIn').textContent=inr(sumOf(ins));document.getElementById('txOut').textContent=inr(sumOf(outs));document.getElementById('txNet').textContent=money(sumOf(ins)-sumOf(outs));document.getElementById('txInFoot').textContent=ins.length+' receipt'+(ins.length===1?'':'s');document.getElementById('txOutFoot').textContent=outs.length+' payment'+(outs.length===1?'':'s');document.getElementById('txCount').textContent=shown.length+' of '+all.length+' shown, soonest first';document.querySelectorAll('.chip[data-filter]').forEach(chip=>chip.classList.toggle('on',chip.dataset.filter===txFilter));document.getElementById('txList').innerHTML=shown.length?shown.map(item=>eventRow(item,true)).join(''):`<p class="emptyhint">${all.length?'No transactions match this filter.':'No transactions yet. Use “Add transaction” to enter your first receipt or payment.'}</p>`}
+function renderViews(){renderOverview();renderTransactions();renderInvoices()}
+function removeFlow(id){flowItems=flowItems.filter(item=>String(item.id)!==id);buildFlowArrays();renderEvents();draw();saveAccountState()}
+function markReceived(id){const item=flowItems.find(entry=>String(entry.id)===id);if(!item)return;if(!cashProvided){alert('Set your current cash balance in Settings first, so the received amount can be added to it.');return}if(!confirm('Mark “'+item.name+'” as received? '+inr(item.amount)+' will be added to your cash balance and removed from expected receipts.'))return;cashStart+=Number(item.amount)||0;removeFlow(String(item.id))}
+function openAddForm(type){setView('cashflow');const form=document.getElementById('flowForm');form.hidden=false;document.getElementById('flowType').value=type;document.getElementById('flowName').focus();form.scrollIntoView({behavior:'smooth',block:'center'})}
+function settingsMessage(text,isError){const el=document.getElementById('setMsg');el.textContent=text;el.classList.toggle('err',!!isError)}
+function fillSettings(){const user=currentUser;document.getElementById('setName').textContent=user?user.username:(demoMode?'Demo account':'Not signed in');document.getElementById('setContact').textContent=user?(user.phone||user.email||'—'):'—';document.getElementById('setMode').textContent=demoMode?'Demo mode. Changes are not saved. Sign up to keep your data.':'Your changes are saved to your workspace.';document.getElementById('setCash').value=cashProvided?String(cashStart):'';document.getElementById('setReserve').value=reserveProvided?String(reserve):'';settingsMessage('')}
+document.querySelectorAll('.nav[data-view]').forEach(button=>button.addEventListener('click',()=>setView(button.dataset.view)));
+document.querySelectorAll('.chip[data-filter]').forEach(chip=>chip.addEventListener('click',()=>{txFilter=chip.dataset.filter;renderTransactions()}));
+document.getElementById('txSearch').addEventListener('input',renderTransactions);
+document.addEventListener('click',event=>{const remove=event.target.closest('[data-remove]');if(remove){removeFlow(remove.dataset.remove);return}const received=event.target.closest('[data-received]');if(received){markReceived(received.dataset.received);return}const add=event.target.closest('[data-add]');if(add){openAddForm(add.dataset.add);return}const goto=event.target.closest('[data-goto]');if(goto)setView(goto.dataset.goto)});
+document.getElementById('setCashForm').addEventListener('submit',event=>{event.preventDefault();const raw=document.getElementById('setCash').value.trim(),amount=Number(raw);if(raw===''||!Number.isFinite(amount)||amount<0){settingsMessage('Enter an amount of zero or more.',true);return}cashStart=amount;cashProvided=true;draw();saveAccountState();settingsMessage('Cash balance saved.')});
+document.getElementById('setReserveForm').addEventListener('submit',event=>{event.preventDefault();const raw=document.getElementById('setReserve').value.trim();if(raw===''){reserveProvided=false;reserve=0;draw();saveAccountState();settingsMessage('Reserve threshold turned off.');return}const amount=Number(raw);if(!Number.isFinite(amount)||amount<0){settingsMessage('Enter an amount of zero or more.',true);return}reserve=amount;reserveProvided=true;draw();saveAccountState();settingsMessage('Reserve threshold saved.')});
+document.getElementById('setResetScenario').addEventListener('click',()=>{document.getElementById('reset').click();settingsMessage('Scenario sliders reset.')});
+document.getElementById('setClear').addEventListener('click',()=>{if(!flowItems.length){settingsMessage('There are no entries to clear.');return}if(!confirm('Clear all '+flowItems.length+' cash flow entries? This cannot be undone.'))return;flowItems=[];buildFlowArrays();renderEvents();draw();saveAccountState();settingsMessage('All entries cleared.')});
+document.getElementById('setSignOut').addEventListener('click',()=>document.getElementById('signOut').click());
+function renderInvoicesBase(){const invoices=sortedFlows().filter(item=>item.type==='in'&&!item.invoiceId);const allIn=sortedFlows().filter(item=>item.type==='in');document.getElementById('invTotal').textContent=inr(sumOf(allIn));document.getElementById('invCount').textContent=allIn.length+' invoice'+(allIn.length===1?'':'s')+' expected';document.getElementById('invNow').textContent=inr(sumOf(allIn.filter(i=>Number(i.week)===0)));document.getElementById('invSoon').textContent=inr(sumOf(allIn.filter(i=>Number(i.week)<=4)));document.getElementById('invLegacy').innerHTML=invoices.length?'<div class="listhead">Quick entries</div>'+invoices.map(invoiceRow).join(''):''}
+
+/* ===== Invoices with dates, photo scan and payment reminders ===== */
+let invoices=[],invSettings={businessName:'',contactEmail:'',udyam:'',bankRate:''},reminderLog=[],reminderReady=true,invPaidFlag=false;
+const enterDemoBase=enterDemoDashboard;enterDemoDashboard=function(...args){invoices=[];invSettings={businessName:'',contactEmail:'',udyam:'',bankRate:''};reminderLog=[];return enterDemoBase(...args)};
+const accountStateBase=accountState;accountState=function(){return {...accountStateBase(),invoices,invSettings}};
+const applyAccountBase=applyAccountState;applyAccountState=function(state={}){reminderLog=[];invoices=Array.isArray(state.invoices)?state.invoices.filter(item=>item&&typeof item.id==='string'):[];invSettings={businessName:'',contactEmail:'',udyam:'',bankRate:'',...(state.invSettings&&typeof state.invSettings==='object'?state.invSettings:{})};applyAccountBase(state)};
+const STAGES=[{key:'before_7',offset:-7,label:'7 days before the due date'},{key:'due_0',offset:0,label:'on the due date'},{key:'over_7',offset:7,label:'7 days overdue'},{key:'over_15',offset:15,label:'15 days overdue'},{key:'over_30',offset:30,label:'30 days overdue'}];
+const EMAIL_RE=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const todayStr=()=>new Date().toLocaleDateString('en-CA');
+const dayMs=iso=>/^\d{4}-\d{2}-\d{2}$/.test(iso||'')?Date.parse(iso+'T00:00:00Z'):NaN;
+const diffDays=(a,b)=>Math.round((dayMs(b)-dayMs(a))/864e5);
+const plusDays=(iso,n)=>new Date(dayMs(iso)+n*864e5).toISOString().slice(0,10);
+const niceDay=iso=>Number.isNaN(dayMs(iso))?'':new Date(dayMs(iso)).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'});
+function weekFromDue(due){const days=diffDays(todayStr(),due);return Number.isFinite(days)?Math.max(0,Math.min(12,Math.floor(days/7))):0}
+function msmeInterest(inv){const rate=Number(invSettings.bankRate);if(!invSettings.udyam||!(rate>0)||rate>30)return null;const cap=Number.isNaN(dayMs(inv.issueDate))?null:plusDays(inv.issueDate,45);const legal=cap&&dayMs(inv.dueDate)>dayMs(cap)?cap:inv.dueDate;const late=diffDays(legal,todayStr());if(!(late>0))return 0;const monthly=rate*3/100/12;return Math.round(inv.amount*(Math.pow(1+monthly,late/30.4375)-1))}
+function reminderInfo(inv){const sent=reminderLog.filter(row=>row.invoice_id===inv.id&&row.status==='sent');const lastKey=sent.length?STAGES.filter(st=>sent.some(row=>row.stage===st.key)).map(st=>st.offset).reduce((a,b)=>Math.max(a,b),-Infinity):-Infinity;if(!inv.reminders?.enabled)return {html:'Reminders off',cls:''};const next=STAGES.find(st=>st.offset>lastKey&&plusDays(inv.dueDate,st.offset)>=todayStr())||STAGES.find(st=>st.offset>lastKey);const last=sent.length?'Last sent '+niceDay(String(sent[0].sent_at).slice(0,10))+'. ':'';return {html:'<b>Reminders on.</b> '+last+(next?'Next: '+escapeHtml(next.label)+' ('+niceDay(plusDays(inv.dueDate,next.offset))+').':'All reminders sent.'),cls:''}}
+function trackedRow(inv){const id=escapeHtml(inv.id),days=diffDays(todayStr(),inv.dueDate),when=days<0?'<span style="color:#b3261e">overdue by '+(-days)+' day'+(days===-1?'':'s')+'</span>':days===0?'due today':'in '+days+' day'+(days===1?'':'s');const interest=days<0?msmeInterest(inv):null;const info=reminderInfo(inv);return `<div class="event invrow"><div class="eventicon">↗</div><div><div class="eventname">${escapeHtml(inv.customer)}${inv.number?' · '+escapeHtml(inv.number):''}</div><div class="eventmeta">Due ${niceDay(inv.dueDate)} · ${when}${inv.email?' · '+escapeHtml(inv.email):''}</div><div class="remline">${info.html}</div>${interest>0?'<div class="remline warn">Estimated MSMED interest so far: '+inr(interest)+'</div>':''}</div><div class="amount in"><div class="invact"><span>+${inr(inv.amount)}</span><button class="secondarybtn mini" type="button" data-inv-rem="${id}">${inv.reminders?.enabled?'Turn reminders off':'Turn reminders on'}</button>${inv.reminders?.enabled?`<button class="secondarybtn mini" type="button" data-inv-test="${id}">Email me a test</button>`:''}<button class="secondarybtn mini" type="button" data-inv-paid="${id}">Mark received</button><button class="reset" type="button" data-inv-del="${id}" aria-label="Remove invoice">×</button></div></div></div>`}
+function renderInvoices(){renderInvoicesBase();const open=invoices.filter(inv=>inv.status!=='paid').sort((a,b)=>dayMs(a.dueDate)-dayMs(b.dueDate)),paid=invoices.filter(inv=>inv.status==='paid').slice(0,5);document.getElementById('invList').innerHTML=open.length?open.map(trackedRow).join(''):(flowItems.some(i=>i.type==='in'&&!i.invoiceId)?'':'<p class="emptyhint">No invoices yet. Use “Add invoice” to record money a customer owes you, or scan a photo of one.</p>');document.getElementById('invPaid').innerHTML=paid.length?'<div class="listhead">Recently received</div>'+paid.map(inv=>`<div class="event"><div class="eventicon">✓</div><div><div class="eventname">${escapeHtml(inv.customer)}${inv.number?' · '+escapeHtml(inv.number):''}</div><div class="eventmeta">Received ${niceDay(inv.paidDate||'')}</div></div><div class="amount in">+${inr(inv.amount)}</div></div>`).join(''):'';if(!reminderReady)document.getElementById('invMsg').textContent='Reminder history is not set up yet. Run supabase/reminders.sql in Supabase.'}
+const markReceivedBase=markReceived;markReceived=function(id){invPaidFlag=true;try{markReceivedBase(id)}finally{invPaidFlag=false}};
+const removeFlowBase=removeFlow;removeFlow=function(id){const flow=flowItems.find(item=>String(item.id)===id);if(flow&&flow.invoiceId){const inv=invoices.find(item=>item.id===flow.invoiceId);if(inv){if(invPaidFlag){inv.status='paid';inv.paidDate=todayStr();inv.reminders={...(inv.reminders||{}),enabled:false}}else invoices=invoices.filter(item=>item!==inv)}}removeFlowBase(id)};
+const setViewBase=setView;setView=function(view){setViewBase(view);if(view==='invoices')loadReminderLog()};
+async function loadReminderLog(){if(!currentUser||demoMode)return;try{const result=await apiRequest('/api/reminders/list');reminderLog=Array.isArray(result.log)?result.log:[];reminderReady=result.ready!==false;renderInvoices()}catch{}}
+function invMessage(text,isError){const el=document.getElementById('invMsg');el.textContent=text;el.classList.toggle('err',!!isError)}
+function scanMessage(text,kind){const el=document.getElementById('invScanMsg');el.textContent=text;el.className='scanhint'+(kind?' '+kind:'')}
+function openInvoiceForm(){const form=document.getElementById('invForm');form.reset();form.querySelectorAll('input.auto').forEach(i=>i.classList.remove('auto'));document.getElementById('invIssue').value=todayStr();scanMessage('Upload a clear JPG, PNG or WebP photo and the fields below fill in. Check every field before saving.');form.hidden=false;document.getElementById('invCustomer').focus()}
+document.getElementById('invNewBtn').addEventListener('click',openInvoiceForm);
+document.getElementById('invCancel').addEventListener('click',()=>{document.getElementById('invForm').hidden=true});
+async function shrinkImage(file){let bitmap;try{bitmap=await createImageBitmap(file)}catch{throw new Error('This photo format cannot be read here. Use a JPG or PNG (iPhone HEIC photos need converting first).')}for(const max of [1600,1200,900]){const scale=Math.min(1,max/Math.max(bitmap.width,bitmap.height)),canvas=document.createElement('canvas');canvas.width=Math.round(bitmap.width*scale);canvas.height=Math.round(bitmap.height*scale);const ctx=canvas.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.drawImage(bitmap,0,0,canvas.width,canvas.height);const data=canvas.toDataURL('image/jpeg',0.85).split(',')[1];if(data.length<3_200_000)return data}throw new Error('This photo is too large. Try a smaller one.')}
+document.getElementById('invFile').addEventListener('change',async event=>{const file=event.target.files[0];event.target.value='';if(!file)return;if(!currentUser||demoMode){scanMessage('Sign in to use invoice scanning.','err');return}if(file.size>15_000_000){scanMessage('That file is too large. Use a photo under 15 MB.','err');return}scanMessage('Reading the invoice…');try{const image=await shrinkImage(file),result=await apiRequest('/api/invoice/extract','POST',{image,mime:'image/jpeg'}),f=result.fields||{};const map={invNumber:f.number,invCustomer:f.customer,invEmail:f.email,invAmount:f.amount,invIssue:f.issueDate,invDue:f.dueDate};for(const [id,value] of Object.entries(map)){const input=document.getElementById(id);if(value!==undefined&&value!==null&&value!==''){input.value=value;input.classList.add('auto')}}const warnings=result.warnings||[];scanMessage(warnings.length?'Filled what could be read. '+warnings.join(' '):'Filled from the photo. Check every field before saving.',warnings.length?'warn':'')}catch(error){scanMessage(error.message||'Could not read this invoice.','err')}});
+document.getElementById('invForm').addEventListener('input',event=>event.target.classList&&event.target.classList.remove('auto'));
+document.getElementById('invForm').addEventListener('submit',async event=>{event.preventDefault();const customer=document.getElementById('invCustomer').value.trim(),number=document.getElementById('invNumber').value.trim(),email=document.getElementById('invEmail').value.trim(),amount=Number(document.getElementById('invAmount').value),issueDate=document.getElementById('invIssue').value||todayStr(),dueDate=document.getElementById('invDue').value,remind=document.getElementById('invRemind').checked;if(!customer){invMessage('Enter the customer name.',true);return}if(!(amount>0)){invMessage('Enter an amount above zero.',true);return}if(Number.isNaN(dayMs(dueDate))){invMessage('Choose the due date.',true);return}if(email&&!EMAIL_RE.test(email)){invMessage('That email address does not look right.',true);return}if(remind&&!email){invMessage('Add the customer’s email to send reminders.',true);return}const inv={id:crypto.randomUUID?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2,8),number,customer,email,amount,issueDate,dueDate,status:'open',reminders:{enabled:false},createdAt:todayStr()};invoices.unshift(inv);flowItems.push({id:crypto.randomUUID?crypto.randomUUID():Date.now().toString(36),name:customer+(number?' · '+number:''),type:'in',amount,week:weekFromDue(dueDate),invoiceId:inv.id});buildFlowArrays();renderEvents();draw();saveAccountState();document.getElementById('invForm').hidden=true;invMessage('Invoice saved and added to your forecast.');if(remind)enableReminders(inv)});
+function reminderPlanText(inv){return STAGES.map(st=>'• '+niceDay(plusDays(inv.dueDate,st.offset))+' ('+st.label+')').join('\n')}
+function enableReminders(inv){if(!currentUser||demoMode){alert('Sign in to send reminders. Demo mode does not save your data.');return}if(!invSettings.businessName||!EMAIL_RE.test(invSettings.contactEmail||'')){alert('First add your business name and contact email under Settings → Payment reminders. Customers will see your business name and replies come to that email.');setView('settings');return}if(!inv.email){alert('Add the customer’s email first.');return}if(!confirm('ClearRun will email '+inv.email+' about '+inr(inv.amount)+' on these dates, until you mark the invoice received:\n\n'+reminderPlanText(inv)+'\n\nEmails are sent as “'+invSettings.businessName+'” and replies go to '+invSettings.contactEmail+'.\n\nTip: use “Email me a test” first to see exactly what they will get. Turn on?'))return;inv.reminders={enabled:true,enabledAt:todayStr()};renderInvoices();saveAccountState();invMessage('Reminders are on for '+inv.customer+'.')}
+document.addEventListener('click',async event=>{const rem=event.target.closest('[data-inv-rem]');if(rem){const inv=invoices.find(item=>item.id===rem.dataset.invRem);if(!inv)return;if(inv.reminders?.enabled){inv.reminders={enabled:false};renderInvoices();saveAccountState();invMessage('Reminders turned off.')}else enableReminders(inv);return}const test=event.target.closest('[data-inv-test]');if(test){const inv=invoices.find(item=>item.id===test.dataset.invTest);if(!inv)return;test.disabled=true;invMessage('Sending a test email to you…');try{await apiRequest('/api/workspace','PUT',{state:accountState()});const result=await apiRequest('/api/reminders/test','POST',{invoiceId:inv.id});invMessage('Test email sent to '+result.sentTo+' ('+result.stage+' wording). Your customer was not emailed.')}catch(error){invMessage(error.message||'Could not send the test email.',true)}test.disabled=false;return}const paid=event.target.closest('[data-inv-paid]');if(paid){const inv=invoices.find(item=>item.id===paid.dataset.invPaid);const flow=inv&&flowItems.find(item=>item.invoiceId===inv.id);if(flow)markReceived(String(flow.id));else if(inv&&confirm('Mark this invoice as received?')){inv.status='paid';inv.paidDate=todayStr();inv.reminders={enabled:false};renderInvoices();saveAccountState()}return}const del=event.target.closest('[data-inv-del]');if(del){const inv=invoices.find(item=>item.id===del.dataset.invDel);if(!inv||!confirm('Remove the invoice for '+inv.customer+'? Reminders stop and it leaves your forecast.'))return;const flow=flowItems.find(item=>item.invoiceId===inv.id);if(flow)removeFlow(String(flow.id));else{invoices=invoices.filter(item=>item!==inv);renderInvoices();saveAccountState()}}});
+const fillSettingsBase=fillSettings;fillSettings=function(){fillSettingsBase();document.getElementById('setBizName').value=invSettings.businessName||'';document.getElementById('setContactEmail').value=invSettings.contactEmail||'';document.getElementById('setUdyam').value=invSettings.udyam||'';document.getElementById('setBankRate').value=invSettings.bankRate||'';document.getElementById('setRemMsg').textContent=''};
+document.getElementById('setRemForm').addEventListener('submit',event=>{event.preventDefault();const msg=document.getElementById('setRemMsg'),email=document.getElementById('setContactEmail').value.trim(),rateRaw=document.getElementById('setBankRate').value.trim(),rate=Number(rateRaw);if(email&&!EMAIL_RE.test(email)){msg.textContent='That email address does not look right.';msg.classList.add('err');return}if(rateRaw!==''&&!(rate>=0&&rate<=30)){msg.textContent='Enter the bank rate as a percentage, for example 6.5.';msg.classList.add('err');return}invSettings={businessName:document.getElementById('setBizName').value.trim(),contactEmail:email,udyam:document.getElementById('setUdyam').value.trim(),bankRate:rateRaw};saveAccountState();renderInvoices();msg.classList.remove('err');msg.textContent='Saved.'});
+
+const drawBase=draw;draw=function(){drawBase();renderViews()};
+</script>
+<script>
+/* ===== ClearRun v5: Google sign-in, safe team saving, invoice scan, reminder ladder, customer risk ===== */
+(() => {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const esc = value => escapeHtml(value);
+  const clone = value => JSON.parse(JSON.stringify(value ?? null));
+  const fmtDay = iso => niceDay(iso) || 'not set';
+
+  // ---------- API helper that keeps the HTTP status ----------
+  async function apiCall(path, method = 'GET', body) {
+    if (location.protocol === 'file:') throw new Error('ClearRun needs its server. Run "npm run dev" and open http://localhost:5500 instead of the file.');
+    const response = await fetch(path, { method, credentials: 'same-origin', headers: body ? { 'Content-Type': 'application/json' } : {}, body: body ? JSON.stringify(body) : undefined });
+    let data = {};
+    try { data = await response.json(); } catch {}
+    return { ok: response.ok, status: response.status, data };
+  }
+  async function api(path, method, body) {
+    const result = await apiCall(path, method, body);
+    if (!result.ok) throw new Error(result.data.error || 'The request could not be completed.');
+    return result.data;
+  }
+
+  // ---------- small modal dialog ----------
+  const dialog = document.createElement('dialog');
+  dialog.className = 'crdialog';
+  document.body.appendChild(dialog);
+  dialog.addEventListener('click', event => { if (event.target === dialog || event.target.closest('[data-close]')) dialog.close(); });
+  function openDialog(html) { dialog.innerHTML = '<button class="crclose" type="button" data-close aria-label="Close">×</button>' + html; if (!dialog.open) dialog.showModal(); return dialog; }
+
+  // =====================================================================
+  // 1. Saving: never overwrite a teammate's changes
+  // =====================================================================
+  let riskCustomers = [];
+  let syncedState = null; // the state as last seen on the server
+  const accountStateV4 = accountState;
+  accountState = function () { return { ...accountStateV4(), riskCustomers }; };
+  const applyAccountStateV4 = applyAccountState;
+  applyAccountState = function (state = {}) {
+    riskCustomers = Array.isArray(state.riskCustomers) ? state.riskCustomers : [];
+    applyAccountStateV4(state);
+    syncedState = clone(state);
+    riskResult = null;
+    if (activeView === 'customerRisk' || activeView === 'invoices') refreshRisk();
+  };
+
+  const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+  function mergeById(base = [], local = [], remote = []) {
+    if (![...base, ...local, ...remote].every(item => item && typeof item === 'object' && 'id' in item)) return local;
+    const B = new Map(base.map(i => [String(i.id), i])), L = new Map(local.map(i => [String(i.id), i])), R = new Map(remote.map(i => [String(i.id), i]));
+    const out = [];
+    const ids = [...new Set([...remote.map(i => String(i.id)), ...local.map(i => String(i.id))])];
+    for (const id of ids) {
+      const b = B.get(id), l = L.get(id), r = R.get(id);
+      if (l && r) out.push(b && same(l, b) ? r : l);                 // both have it: my edit wins, else theirs
+      else if (l) { if (!b || !same(l, b)) out.push(l); }            // new here, or edited here after they deleted it
+      else if (r) { if (!b || !same(r, b)) out.push(r); }            // new there, or edited there after I deleted it
+    }
+    return out;
+  }
+  function mergeStates(base, local, remote) {
+    const out = { ...remote };
+    for (const key of new Set([...Object.keys(base), ...Object.keys(local), ...Object.keys(remote)])) {
+      const b = base[key], l = local[key], r = remote[key];
+      if (Array.isArray(l) || Array.isArray(r)) out[key] = mergeById(Array.isArray(b) ? b : [], Array.isArray(l) ? l : [], Array.isArray(r) ? r : []);
+      else if (l && typeof l === 'object') {
+        const merged = { ...(r && typeof r === 'object' ? r : {}) };
+        for (const k of Object.keys(l)) if (!same(l[k], b?.[k])) merged[k] = l[k];
+        out[key] = merged;
+      } else out[key] = same(l, b) ? r : l;
+    }
+    return out;
+  }
+  let saveChain = Promise.resolve();
+  async function pushState(attempt = 0) {
+    if (!currentUser || demoMode) return;
+    const local = accountState();
+    const result = await apiCall('/api/workspace', 'PUT', { state: local, baseUpdatedAt: lastWorkspaceUpdatedAt || undefined });
+    if (result.ok) { lastWorkspaceUpdatedAt = result.data.updatedAt || lastWorkspaceUpdatedAt; syncedState = clone(local); return; }
+    if (result.status === 409 && result.data.state && attempt < 3) {
+      const merged = mergeStates(syncedState || {}, local, result.data.state);
+      lastWorkspaceUpdatedAt = result.data.updatedAt;
+      applyAccountState(merged);
+      syncedState = clone(result.data.state);
+      note('A teammate saved changes at the same time. Both sets of changes were kept.');
+      return pushState(attempt + 1);
+    }
+    throw new Error(result.data.error || 'Could not save.');
+  }
+  function queueSave() {
+    saveChain = saveChain.then(() => pushState()).catch(error => { console.warn('Could not sync workspace:', error.message); note('Could not save just now. Your changes are kept on this screen and will be saved with your next change.', true); });
+    return saveChain;
+  }
+  saveAccountState = function () {
+    if (!currentUser || demoMode || syncingRemote) return;
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => { saveTimer = null; queueSave(); }, 300);
+  };
+  window.flushSave = async function () {
+    if (saveTimer) { clearTimeout(saveTimer); saveTimer = null; }
+    if (currentUser && !demoMode) await queueSave();
+  };
+  const noteEl = document.createElement('div');
+  noteEl.className = 'crnote';
+  noteEl.hidden = true;
+  document.body.appendChild(noteEl);
+  let noteTimer;
+  function note(text, isError) {
+    noteEl.textContent = text;
+    noteEl.classList.toggle('err', !!isError);
+    noteEl.hidden = false;
+    clearTimeout(noteTimer);
+    noteTimer = setTimeout(() => { noteEl.hidden = true; }, 5000);
+  }
+
+  // =====================================================================
+  // 2. Google sign-in (client ID comes from the server, so it always matches)
+  // =====================================================================
+  let googleId = GOOGLE_CLIENT_ID, gsiReady = false, gsiWaits = 0;
+  const configReady = apiCall('/api/config').then(result => { if (result.ok) googleId = result.data.googleClientId || ''; }).catch(() => {});
+  function addGoogleSlot(panelId, hostId, label) {
+    const panel = $(panelId), form = panel?.querySelector('form');
+    if (!panel || !form) return;
+    form.insertAdjacentHTML('beforebegin', `<div class="gslot"><div id="${hostId}" class="googlelive"></div><div class="gnote" data-gnote></div><div class="ordiv"><span>${label}</span></div></div>`);
+  }
+  addGoogleSlot('signinPanel', 'googleSigninHost', 'or sign in with phone');
+  addGoogleSlot('signupPanel', 'googleSignupHost', 'or create an account with phone');
+  $('googleButtonHost')?.insertAdjacentHTML('afterend', '<div class="gnote" data-gnote></div>');
+  const oldGoogleBtn = $('oauthSigninBtn');
+  if (oldGoogleBtn?.parentElement) oldGoogleBtn.parentElement.hidden = true;
+  const demoHint = document.querySelector('#signinPanel .demohint');
+  if (demoHint) demoHint.textContent = 'Your account is saved securely online, so you can sign in from any device.';
+  const oauthPanel = $('oauthPanel');
+  oauthPanel?.insertAdjacentHTML('beforeend', `<details class="ghelp"><summary>Google button not working?</summary><p>Ask whoever set up ClearRun to add <code>${esc(location.origin)}</code> under Google Cloud → Clients → Authorized JavaScript origins. While the Google app is in testing, your Gmail address must also be listed as a test user.</p></details>`);
+  function googleNote(text) { document.querySelectorAll('[data-gnote]').forEach(el => { el.textContent = text; }); }
+  async function renderGoogle() {
+    await configReady;
+    if (location.protocol === 'file:') return googleNote('Google sign-in works when ClearRun is opened from its web address, not as a file.');
+    if (!googleId) return googleNote('Google sign-in is not set up on this server yet. Use your phone number and password.');
+    if (!window.google?.accounts?.id) {
+      if (gsiWaits++ < 25) setTimeout(renderGoogle, 300);
+      else googleNote('Google sign-in could not load. An ad blocker or network filter may be blocking it. Use your phone number and password instead.');
+      return;
+    }
+    googleNote('');
+    if (!gsiReady) {
+      google.accounts.id.initialize({ client_id: googleId, callback: onGoogleCredential, auto_select: false, cancel_on_tap_outside: true, context: 'signin' });
+      gsiReady = true;
+    }
+    for (const host of ['googleButtonHost', 'googleSigninHost', 'googleSignupHost'].map($)) {
+      if (!host || host.dataset.rendered || host.offsetParent === null) continue;
+      google.accounts.id.renderButton(host, { type: 'standard', theme: 'outline', size: 'large', text: host.id === 'googleSignupHost' ? 'signup_with' : 'continue_with', shape: 'rectangular', width: 300, logo_alignment: 'left' });
+      host.dataset.rendered = '1';
+    }
+  }
+  initGoogleIdentity = renderGoogle;
+  const openAuthV4 = openAuth;
+  openAuth = function (panel) { openAuthV4(panel); setTimeout(renderGoogle, 60); };
+  async function onGoogleCredential(response) {
+    const visible = ['signupPanel', 'signinPanel', 'oauthPanel'].find(id => !$(id).hidden);
+    const message = $({ signupPanel: 'authMessage', signinPanel: 'signinMessage', oauthPanel: 'oauthMessage' }[visible] || 'oauthMessage');
+    message.textContent = 'Signing you in…';
+    try {
+      const result = await api('/api/auth/google', 'POST', { credential: response?.credential });
+      demoMode = false;
+      currentUser = result.user;
+      message.textContent = '';
+      await finishSignIn(currentUser.username);
+    } catch (error) {
+      message.textContent = error.message || 'Google sign in failed. Please try again.';
+    }
+  }
+  handleGoogleCredential = onGoogleCredential;
+
+  // Greeting, display name and date range
+  const displayName = user => {
+    const name = String(user?.username || '');
+    return user?.email && !user?.phone ? name.replace(/\s[A-Za-z0-9_-]{5}$/, '') : name; // Google accounts get a short suffix for uniqueness
+  };
+  const finishSignInV4 = finishSignIn;
+  finishSignIn = async function (name) {
+    await finishSignInV4(name);
+    if (!currentUser || $('dashboardView').hidden) return;
+    const shown = displayName(currentUser), hour = new Date().getHours();
+    $('dashGreeting').textContent = (hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening') + ', ' + shown.split(/\s+/)[0];
+    $('userDisplay').textContent = shown;
+    $('userAvatar').textContent = shown.split(/\s+/).map(part => part[0] || '').join('').slice(0, 2).toUpperCase() || '?';
+  };
+  const pill = document.querySelector('.datepill');
+  if (pill) {
+    const end = new Date(Date.now() + (13 * 7 - 1) * 864e5);
+    pill.textContent = '◷  ' + new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short' }) + ' to ' + end.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+  }
+
+  // =====================================================================
+  // 3. Team: invite and join (the API existed; the screen did not)
+  // =====================================================================
+  document.querySelector('.setgrid .panel')?.insertAdjacentHTML('afterend', `<div class="panel obligations" id="teamPanel"><h2>Team</h2>
+    <div class="sub">Share this business with teammates. Everyone in the workspace sees and edits the same cash flow, invoices and customers.</div>
+    <div class="teamrow"><button class="primarybtn" type="button" id="teamInvite">Create invite code</button><div class="teamcode" id="teamCode" hidden></div></div>
+    <form class="setrow" id="teamJoin"><label>Join a teammate's workspace<input id="teamJoinCode" maxlength="16" placeholder="12-character code" autocomplete="off"></label><button class="secondarybtn" type="submit">Join</button></form>
+    <div class="setmsg" id="teamMsg" aria-live="polite"></div></div>`);
+  const teamMsg = (text, isError) => { $('teamMsg').textContent = text; $('teamMsg').classList.toggle('err', !!isError); };
+  $('teamInvite').addEventListener('click', async () => {
+    if (!currentUser || demoMode) return teamMsg('Sign in to invite teammates.', true);
+    try {
+      const invite = await api('/api/workspace/invite', 'POST');
+      $('teamCode').hidden = false;
+      $('teamCode').innerHTML = `<b>${esc(invite.code)}</b><span>Valid until ${esc(new Date(invite.expiresAt).toLocaleDateString('en-IN', { day: 'numeric', month: 'short' }))}. Share it only with people who should see this business's finances.</span>`;
+      teamMsg('');
+    } catch (error) { teamMsg(error.message, true); }
+  });
+  $('teamJoin').addEventListener('submit', async event => {
+    event.preventDefault();
+    if (!currentUser || demoMode) return teamMsg('Sign in to join a workspace.', true);
+    const code = $('teamJoinCode').value.replace(/[\s-]/g, '').toUpperCase();
+    if (!/^[A-F0-9]{12}$/.test(code)) return teamMsg('Enter the 12-character code your teammate shared.', true);
+    if (!confirm('Switch to your teammate\'s workspace? You will see and edit their data. Your current workspace stays saved.')) return;
+    try {
+      await window.flushSave();
+      await api('/api/workspace/join', 'POST', { code });
+      await loadAccountState();
+      $('teamJoinCode').value = '';
+      teamMsg('Joined. You are now working in the shared workspace.');
+    } catch (error) { teamMsg(error.message, true); }
+  });
+  const fillSettingsV4 = fillSettings;
+  fillSettings = function () {
+    fillSettingsV4();
+    const signedIn = !!currentUser && !demoMode;
+    $('teamInvite').disabled = !signedIn;
+    $('teamJoin').querySelectorAll('input,button').forEach(el => { el.disabled = !signedIn; });
+    if (!signedIn) teamMsg('Sign in to share a workspace with teammates.');
+    if (currentUser) $('setName').textContent = displayName(currentUser);
+  };
+
+  // =====================================================================
+  // 4. Invoices: more accurate scanning, GSTIN, paid history
+  // =====================================================================
+  const TIER_OF = { before_7: 'gentle', due_0: 'gentle', over_7: 'formal', over_15: 'formal', over_30: 'legal' };
+  STAGES.forEach(stage => { stage.tier = TIER_OF[stage.key]; });
+  const TIER = { gentle: { label: 'Gentle', cls: 'tg' }, formal: { label: 'Formal', cls: 'tf' }, legal: { label: 'Legal notice', cls: 'tl' } };
+
+  $('invCustomer').closest('label').insertAdjacentHTML('afterend', '<label>Customer GSTIN (optional)<input id="invGstin" maxlength="15" placeholder="29ABCDE1234F1Z5" autocomplete="off"></label>');
+  $('invDue').closest('label').insertAdjacentHTML('afterend', '<label>Already paid? Paid on (optional)<input id="invPaidOn" type="date"></label>');
+  $('invRemind').closest('label').insertAdjacentHTML('afterend', '<p class="invhint">Adding older invoices with their paid date builds each customer\'s payment history for Customer risk.</p>');
+  const scanLabel = document.querySelector('label[for="invFile"]');
+  if (scanLabel) scanLabel.textContent = '📷 Scan invoice (photo or PDF)';
+  const oldFile = $('invFile'), fileInput = oldFile.cloneNode(true); // drop the old, less accurate scan handler
+  fileInput.accept = 'image/jpeg,image/png,image/webp,application/pdf';
+  oldFile.replaceWith(fileInput);
+  $('invScanMsg').insertAdjacentHTML('afterend', '<ul class="scanwarn" id="invScanWarn" hidden></ul>');
+  const openInvoiceFormV4 = openInvoiceForm;
+  openInvoiceForm = function () {
+    openInvoiceFormV4();
+    $('invForm').querySelectorAll('input').forEach(input => { input.classList.remove('check', 'auto'); input.title = ''; });
+    $('invScanWarn').hidden = true;
+    scanMessage('Upload a clear photo or a PDF and the fields below fill in. Fields marked in amber need a check.');
+  };
+  $('invNewBtn').replaceWith($('invNewBtn').cloneNode(true));
+  $('invNewBtn').addEventListener('click', openInvoiceForm);
+
+  async function photoToJpeg(file) {
+    let bitmap;
+    try { bitmap = await createImageBitmap(file, { imageOrientation: 'from-image' }); }
+    catch {
+      try { bitmap = await createImageBitmap(file); }
+      catch { throw new Error('This photo format cannot be read here. Use JPG, PNG or PDF (iPhone HEIC photos: share as JPG first).'); }
+    }
+    const longest = Math.max(bitmap.width, bitmap.height);
+    for (const max of [2000, 1600, 1200]) {
+      // Small photos are enlarged a little; large ones reduced. Text needs roughly 1500px+ to read well.
+      const scale = longest < 1000 ? Math.min(2, 1400 / longest) : Math.min(1, max / longest);
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.round(bitmap.width * scale);
+      canvas.height = Math.round(bitmap.height * scale);
+      const ctx = canvas.getContext('2d', { willReadFrequently: true });
+      ctx.fillStyle = '#fff';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.imageSmoothingQuality = 'high';
+      ctx.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+      try { // stretch contrast for faded or dim photos (thermal paper, shadows)
+        const img = ctx.getImageData(0, 0, canvas.width, canvas.height), d = img.data, hist = new Uint32Array(256);
+        for (let i = 0; i < d.length; i += 16) hist[(d[i] * 299 + d[i + 1] * 587 + d[i + 2] * 114) / 1000 | 0]++;
+        const total = hist.reduce((a, b) => a + b, 0);
+        let lo = 0, hi = 255, run = 0;
+        while (lo < 255 && (run += hist[lo]) < total * 0.01) lo++;
+        run = 0;
+        while (hi > 0 && (run += hist[hi]) < total * 0.01) hi--;
+        if (hi - lo > 40 && hi - lo < 215) {
+          const k = 255 / (hi - lo);
+          for (let i = 0; i < d.length; i += 4) for (let c = 0; c < 3; c++) d[i + c] = Math.max(0, Math.min(255, (d[i + c] - lo) * k));
+          ctx.putImageData(img, 0, 0);
+        }
+      } catch {}
+      const data = canvas.toDataURL('image/jpeg', 0.9).split(',')[1];
+      if (data.length < 4_000_000) return data;
+    }
+    throw new Error('This photo is too large. Try a smaller one.');
+  }
+  const fileToBase64 = file => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result).split(',')[1]);
+    reader.onerror = () => reject(new Error('Could not read this file.'));
+    reader.readAsDataURL(file);
+  });
+  fileInput.addEventListener('change', async event => {
+    const file = event.target.files[0];
+    event.target.value = '';
+    if (!file) return;
+    if (!currentUser || demoMode) return scanMessage('Sign in to use invoice scanning.', 'err');
+    const isPdf = file.type === 'application/pdf' || /\.pdf$/i.test(file.name);
+    if (isPdf && file.size > 3_000_000) return scanMessage('That PDF is larger than 3 MB. Export just the invoice page, or take a photo of it.', 'err');
+    if (!isPdf && file.size > 25_000_000) return scanMessage('That file is too large. Use a photo under 25 MB.', 'err');
+    scanMessage(isPdf ? 'Reading the PDF…' : 'Preparing the photo…');
+    $('invScanWarn').hidden = true;
+    try {
+      const image = isPdf ? await fileToBase64(file) : await photoToJpeg(file);
+      scanMessage('Reading the invoice and double-checking the totals…');
+      const result = await api('/api/invoice/extract', 'POST', { image, mime: isPdf ? 'application/pdf' : 'image/jpeg' });
+      const f = result.fields || {}, conf = result.confidence || {};
+      const map = { invNumber: ['number', f.number], invCustomer: ['customer', f.customer], invEmail: ['email', f.email], invGstin: ['gstin', f.gstin], invAmount: ['amount', f.amount], invIssue: ['issueDate', f.issueDate], invDue: ['dueDate', f.dueDate] };
+      let toCheck = 0;
+      for (const [id, [key, value]] of Object.entries(map)) {
+        const input = $(id);
+        input.classList.remove('auto', 'check');
+        input.title = '';
+        if (value !== undefined && value !== null && value !== '') { input.value = value; input.classList.add('auto'); }
+        if (conf[key] === 'low' || (conf[key] === 'medium' && value)) { input.classList.add('check'); input.title = 'Please check this field'; toCheck++; }
+      }
+      const warnings = result.warnings || [];
+      $('invScanWarn').innerHTML = warnings.map(w => '<li>' + esc(w) + '</li>').join('');
+      $('invScanWarn').hidden = !warnings.length;
+      scanMessage((result.passes > 1 ? 'Read twice to double-check. ' : 'Filled from the invoice. ') + (toCheck ? toCheck + ' field' + (toCheck > 1 ? 's' : '') + ' in amber need a check.' : 'Check the fields before saving.'), toCheck || warnings.length ? 'warn' : '');
+    } catch (error) {
+      scanMessage(error.message || 'Could not read this invoice.', 'err');
+    }
+  });
+  const GST_CHARS = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  function validGstin(g) {
+    if (!/^\d{2}[A-Z]{5}\d{4}[A-Z][1-9A-Z]Z[0-9A-Z]$/.test(g)) return false;
+    let sum = 0;
+    for (let i = 0; i < 14; i++) { const p = GST_CHARS.indexOf(g[i]) * (i % 2 ? 2 : 1); sum += Math.floor(p / 36) + (p % 36); }
+    return GST_CHARS[(36 - (sum % 36)) % 36] === g[14];
+  }
+  let invoicesBefore = 0;
+  $('invForm').addEventListener('submit', event => { // runs before the original save handler
+    invoicesBefore = invoices.length;
+    const gstin = $('invGstin').value.trim().toUpperCase();
+    if (gstin && !validGstin(gstin)) { event.stopImmediatePropagation(); event.preventDefault(); invMessage('That GSTIN does not look right. Check it, or leave it empty.', true); return; }
+    if ($('invPaidOn').value) $('invRemind').checked = false; // a paid invoice needs no reminders
+  }, true);
+  $('invForm').addEventListener('submit', () => { // runs after the original save handler
+    if (invoices.length !== invoicesBefore + 1) return;
+    const inv = invoices[0], gstin = $('invGstin').value.trim().toUpperCase(), paidOn = $('invPaidOn').value;
+    if (gstin) inv.gstin = gstin;
+    if (paidOn) {
+      inv.status = 'paid';
+      inv.paidDate = paidOn;
+      inv.reminders = { enabled: false };
+      flowItems = flowItems.filter(item => item.invoiceId !== inv.id); // past payment: not an expected receipt
+      buildFlowArrays();
+      renderEvents();
+      invMessage('Saved as a paid invoice. It counts towards ' + inv.customer + '\'s payment history.');
+    }
+    draw();
+    saveAccountState();
+    refreshRisk();
+  });
+
+  // =====================================================================
+  // 5. Reminder ladder: gentle -> formal -> legal notice
+  // =====================================================================
+  // Same rule as the daily job: it sends the latest step reached (never going backwards),
+  // and the legal notice only when it was approved for this invoice.
+  function ladderState(inv) {
+    const sent = reminderLog.filter(row => row.invoice_id === inv.id && row.status === 'sent');
+    const lastOffset = sent.reduce((max, row) => Math.max(max, STAGES.find(s => s.key === row.stage)?.offset ?? -Infinity), -Infinity);
+    const remaining = STAGES.filter(stage => stage.offset > lastOffset);
+    const today = todayStr(), reached = remaining.filter(stage => plusDays(inv.dueDate, stage.offset) <= today);
+    const allowed = reached.filter(stage => stage.tier !== 'legal' || inv.reminders?.legal);
+    const legalWaiting = reached.some(stage => stage.tier === 'legal') && !inv.reminders?.legal;
+    const now = allowed[allowed.length - 1] || null;
+    const later = remaining.find(stage => plusDays(inv.dueDate, stage.offset) > today && (stage.tier !== 'legal' || inv.reminders?.legal || !legalWaiting)) || null;
+    return { sent, now, later, legalWaiting };
+  }
+  reminderInfo = function (inv) {
+    if (!inv.reminders?.enabled) return { html: 'Reminders off', cls: '' };
+    const { sent, now, later, legalWaiting } = ladderState(inv);
+    const last = sent.length ? 'Last sent ' + fmtDay(String(sent[0].sent_at).slice(0, 10)) + '. ' : '';
+    const tag = stage => '<span class="tier ' + TIER[stage.tier].cls + '">' + TIER[stage.tier].label + '</span> ';
+    const waiting = legalWaiting ? ' ' + tag({ tier: 'legal' }) + 'waits for your approval (open the reminder ladder).' : '';
+    if (now) return { html: '<b>Reminders on.</b> ' + last + 'Next: ' + tag(now) + esc(now.label) + ', goes out with the next morning run.' + waiting, cls: '' };
+    if (later) return { html: '<b>Reminders on.</b> ' + last + 'Next: ' + tag(later) + esc(later.label) + ' (' + fmtDay(plusDays(inv.dueDate, later.offset)) + ').' + waiting, cls: '' };
+    return { html: '<b>Reminders on.</b> ' + last + (legalWaiting ? waiting.trim() : 'All reminders sent.'), cls: '' };
+  };
+  let riskByName = new Map();
+  const customerKey = name => String(name || '').toLowerCase().replace(/\s+/g, ' ').replace(/[.,]/g, '').trim();
+  trackedRow = function (inv) {
+    const id = esc(inv.id), days = diffDays(todayStr(), inv.dueDate);
+    const when = days < 0 ? '<span style="color:#b3261e">overdue by ' + -days + ' day' + (days === -1 ? '' : 's') + '</span>' : days === 0 ? 'due today' : 'in ' + days + ' day' + (days === 1 ? '' : 's');
+    const interest = days < 0 ? msmeInterest(inv) : null;
+    const risk = riskByName.get(customerKey(inv.customer));
+    const riskTag = risk && risk.score != null ? ' <span class="riskbadge ' + riskCls(risk.decision) + '" title="Customer risk score ' + risk.score + '/100">' + esc(risk.decision) + '</span>' : '';
+    return `<div class="event invrow"><div class="eventicon">↗</div><div><div class="eventname">${esc(inv.customer)}${inv.number ? ' · ' + esc(inv.number) : ''}${riskTag}</div><div class="eventmeta">Due ${fmtDay(inv.dueDate)} · ${when}${inv.email ? ' · ' + esc(inv.email) : ''}</div><div class="remline">${reminderInfo(inv).html}</div>${interest > 0 ? '<div class="remline warn">Estimated MSMED interest so far: ' + inr(interest) + '</div>' : ''}</div><div class="amount in"><div class="invact"><span>+${inr(inv.amount)}</span><button class="secondarybtn mini" type="button" data-inv-ladder="${id}">Reminder ladder</button><button class="secondarybtn mini" type="button" data-inv-rem="${id}">${inv.reminders?.enabled ? 'Turn reminders off' : 'Turn reminders on'}</button><button class="secondarybtn mini" type="button" data-inv-paid="${id}">Mark received</button><button class="reset" type="button" data-inv-del="${id}" aria-label="Remove invoice">×</button></div></div></div>`;
+  };
+  reminderPlanText = inv => STAGES.map(st => '• ' + fmtDay(plusDays(inv.dueDate, st.offset)) + ' · ' + TIER[st.tier].label + ' (' + st.label + ')').join('\n');
+
+  async function loadLadder(inv) {
+    if (currentUser && !demoMode) {
+      await window.flushSave();
+      return api('/api/reminders/preview', 'POST', { invoiceId: inv.id });
+    }
+    return api('/api/reminders/preview', 'POST', { invoice: inv, settings: invSettings });
+  }
+  async function showLadder(inv, mode = 'view') {
+    openDialog('<div class="ladder"><p class="emptyhint">Preparing the reminder ladder…</p></div>');
+    let data;
+    try { data = await loadLadder(inv); }
+    catch (error) { openDialog('<div class="ladder"><h2>Reminder ladder</h2><p class="err">' + esc(error.message) + '</p></div>'); return; }
+    const signedIn = currentUser && !demoMode, canTest = signedIn && EMAIL_RE.test(invSettings.contactEmail || '');
+    const focus = (data.ladder.find(e => e.status === 'sends next') || data.ladder.find(e => ['scheduled', 'planned', 'needs approval'].includes(e.status)) || data.ladder[0]).stage;
+    const groups = ['gentle', 'formal', 'legal'].map(tier => {
+      const emails = data.ladder.filter(email => email.tier === tier);
+      return `<section class="tierbox ${TIER[tier].cls}"><h3><span class="tier ${TIER[tier].cls}">${TIER[tier].label}</span>${tier === 'gentle' ? 'Friendly and short' : tier === 'formal' ? 'Firm, asks for a payment date' : 'Formal demand, 15 days to pay'}</h3>${emails.map((email, i) => `
+        <details class="mail" ${email.stage === focus ? 'open' : ''}><summary><span>${esc(fmtDay(email.sendOn))} · ${esc(email.label)}</span><span class="mstatus ${email.status.replace(/\s/g, '')}">${esc(email.status)}</span></summary>
+          <div class="msubject">${esc(email.subject)}</div><pre class="mbody">${esc(email.text)}</pre>
+          <div class="mactions"><button class="secondarybtn mini" type="button" data-copy="${esc(email.stage)}">Copy text</button>${canTest ? `<button class="secondarybtn mini" type="button" data-test-stage="${esc(email.stage)}">Email me a test</button>` : ''}${tier === 'legal' ? '<button class="secondarybtn mini" type="button" data-print-notice>Open printable notice</button>' : ''}</div>
+        </details>`).join('')}</section>`;
+    }).join('');
+    const legalChecked = mode === 'enable' ? false : !!inv.reminders?.legal;
+    const footer = mode === 'enable'
+      ? `<label class="legalopt"><input type="checkbox" id="ladderLegal"> Also send the legal notice automatically at 30 days overdue. If unticked, it waits for your approval; you can always print it yourself.</label>
+         <div class="ladderbtns"><button class="secondarybtn" type="button" data-close>Cancel</button><button class="primarybtn" type="button" id="ladderOn">Turn reminders on</button></div>`
+      : `${signedIn && inv.reminders?.enabled ? `<label class="legalopt"><input type="checkbox" id="ladderLegal" ${legalChecked ? 'checked' : ''}> Send the legal notice automatically at 30 days overdue</label>` : ''}
+         <div class="ladderbtns"><button class="primarybtn" type="button" data-close>Done</button></div>`;
+    openDialog(`<div class="ladder"><h2>Reminder ladder · ${esc(inv.customer)}${inv.number ? ' · ' + esc(inv.number) : ''}</h2>
+      <p class="sub">${inr(inv.amount)} due ${esc(fmtDay(inv.dueDate))}. Emails go in ${esc(invSettings.businessName || 'your business')}'s name${invSettings.contactEmail ? ' and replies come to ' + esc(invSettings.contactEmail) : ''}. Each step is sent at most once and stops as soon as you mark the invoice received.</p>
+      ${!invSettings.udyam ? '<p class="hint">Tip: add your Udyam number and the RBI Bank Rate in Settings to include MSMED Act interest in the formal reminders and the legal notice.</p>' : ''}
+      ${groups}<p class="hint">The legal notice is a template, not legal advice. For disputes or large amounts, have an advocate review or issue it.</p>
+      <div class="ladderfoot">${footer}</div><div class="setmsg" id="ladderMsg" aria-live="polite"></div></div>`);
+    dialog.querySelectorAll('[data-copy]').forEach(button => button.addEventListener('click', async () => {
+      const email = data.ladder.find(item => item.stage === button.dataset.copy);
+      try { await navigator.clipboard.writeText(email.subject + '\n\n' + email.text); button.textContent = 'Copied'; } catch { button.textContent = 'Select the text to copy'; }
+    }));
+    dialog.querySelectorAll('[data-test-stage]').forEach(button => button.addEventListener('click', async () => {
+      button.disabled = true;
+      $('ladderMsg').textContent = 'Sending a test email to you…';
+      try {
+        const result = await api('/api/reminders/test', 'POST', { invoiceId: inv.id, stage: button.dataset.testStage });
+        $('ladderMsg').textContent = 'Test sent to ' + result.sentTo + ' (' + result.stage + '). Your customer was not emailed.';
+      } catch (error) { $('ladderMsg').textContent = error.message; }
+      button.disabled = false;
+    }));
+    dialog.querySelector('[data-print-notice]')?.addEventListener('click', () => {
+      const url = URL.createObjectURL(new Blob([data.noticeHtml], { type: 'text/html' }));
+      const win = window.open(url, '_blank');
+      if (!win) $('ladderMsg').textContent = 'Allow pop-ups for this site to open the printable notice.';
+      setTimeout(() => URL.revokeObjectURL(url), 60_000);
+    });
+    $('ladderOn')?.addEventListener('click', () => {
+      inv.reminders = { enabled: true, enabledAt: todayStr(), legal: $('ladderLegal').checked };
+      dialog.close();
+      renderInvoices();
+      saveAccountState();
+      invMessage('Reminders are on for ' + inv.customer + (inv.reminders.legal ? ', including the legal notice.' : '. The legal notice will wait for your approval.'));
+    });
+    if (mode !== 'enable') $('ladderLegal')?.addEventListener('change', event => {
+      inv.reminders = { ...inv.reminders, legal: event.target.checked };
+      renderInvoices();
+      saveAccountState();
+      $('ladderMsg').textContent = event.target.checked ? 'The legal notice will be sent automatically at 30 days overdue.' : 'The legal notice will wait for your approval.';
+    });
+  }
+  enableReminders = function (inv) {
+    if (!currentUser || demoMode) { alert('Sign in to send reminders. Demo mode does not save your data. You can still open the reminder ladder to see every email.'); return; }
+    if (!invSettings.businessName || !EMAIL_RE.test(invSettings.contactEmail || '')) {
+      alert('First add your business name and contact email under Settings → Payment reminders. Customers will see your business name and replies come to that email.');
+      setView('settings');
+      return;
+    }
+    if (!inv.email) { alert('Add the customer’s email first.'); return; }
+    showLadder(inv, 'enable');
+  };
+  document.addEventListener('click', event => {
+    const button = event.target.closest('[data-inv-ladder]');
+    if (!button) return;
+    const inv = invoices.find(item => item.id === button.dataset.invLadder);
+    if (inv) showLadder(inv);
+  });
+
+  // =====================================================================
+  // 6. Customer risk (your team's model, now fed by invoices too)
+  // =====================================================================
+  VIEWS.customerRisk = { eyebrow: 'Customer risk', title: 'Customer risk', sub: 'Who pays on time, who needs tighter credit, and what to do before the next order.' };
+  const navInvoices = document.querySelector('.nav[data-view="invoices"]');
+  navInvoices.insertAdjacentHTML('afterend', '<button type="button" class="nav" data-view="customerRisk" title="Customer risk"><span class="ico">◎</span><span>Customer risk</span></button>');
+  document.querySelector('.nav[data-view="customerRisk"]').addEventListener('click', () => setView('customerRisk'));
+  document.querySelector('[data-pane="settings"]').insertAdjacentHTML('afterend', `<section data-pane="customerRisk" id="customerRisk" hidden>
+    <div class="cards3">
+      <div class="card"><div class="cardlabel">Full credit <span>✓</span></div><div class="cardvalue" id="rkFull">0</div><div class="cardfoot">Pay reliably. Normal terms are fine.</div></div>
+      <div class="card"><div class="cardlabel">Limited credit <span>!</span></div><div class="cardvalue" id="rkLimited">0</div><div class="cardfoot">Shorter terms or part advance</div></div>
+      <div class="card"><div class="cardlabel">Advance only <span>✕</span></div><div class="cardvalue" id="rkAdvance">0</div><div class="cardfoot" id="rkOwedFoot">Take payment before dispatch</div></div>
+    </div>
+    <div class="riskgrid2">
+      <div class="panel"><div class="panelhead"><div><h2>Customers</h2><div class="sub" id="rkStatus">Scores use six payment signals: lateness, variation, very late invoices, broken promises, overdue now and recent slowdown.</div></div><button class="primarybtn" type="button" id="rkAdd">Add customer</button></div>
+        <div class="setmsg err" id="rkError" aria-live="polite" style="padding:0 20px"></div><div class="list" id="rkList"></div></div>
+      <div class="panel" id="rkDealPanel"><div class="panelhead"><div><h2>Check a deal before you agree</h2><div class="sub">When will the money really arrive, and what should you ask for?</div></div></div>
+        <form class="dealform" id="rkDealForm">
+          <label>Customer<select id="rkDealCustomer"><option value="__new">New customer</option></select></label>
+          <label>Order amount (₹)<input id="rkDealAmount" type="number" min="1" step="1" required placeholder="150000"></label>
+          <label>Credit days asked<input id="rkDealTerms" type="number" min="0" max="365" step="1" value="30" required></label>
+          <div class="dealnew" id="rkDealNew">
+            <label>Type<select id="rkDealType"></select></label>
+            <label>Years in business<input id="rkDealYears" type="number" min="0" max="100" step="1" value="3"></label>
+            <label>Usual order (₹)<input id="rkDealOrder" type="number" min="1" step="1" placeholder="Same as this order"></label>
+          </div>
+          <button class="primarybtn" type="submit" id="rkDealGo">Check deal</button>
+        </form>
+        <div class="setmsg err" id="rkDealError" aria-live="polite" style="padding:0 20px"></div><div class="dealresult" id="rkDealResult" hidden></div></div>
+    </div></section>`);
+
+  const TYPES = ['Large company', 'Govt/PSU', 'SME manufacturer', 'Distributor', 'Trader/Retailer'];
+  $('rkDealType').innerHTML = TYPES.map(t => '<option>' + esc(t) + '</option>').join('');
+  const riskCls = decision => decision === 'Full credit' ? '' : decision === 'Limited credit' ? 'limited' : decision === 'Advance only' ? 'advance' : 'unknown';
+  let riskResult = null, riskSeq = 0;
+
+  // Sample customers for the demo only (never saved, never mixed into a real account).
+  const DEMO_RISK = [
+    { id: 'd1', name: 'Apex Auto Components', type: 'Large company', years: 18, terms: 45, avgOrder: 240000, monthlyBilling: 300000, paidDelays: [2, 0, 5, 3, 1, 4, 0, 2, 6], overdueDays: [], promisesKept: 4, promisesBroken: 0, owed: 240000, overdue: 0 },
+    { id: 'd2', name: 'Delta Traders', type: 'Trader/Retailer', years: 2, terms: 30, avgOrder: 95000, monthlyBilling: 120000, paidDelays: [12, 25, 18, 40, 33, 52, 47, 61], overdueDays: [38], promisesKept: 2, promisesBroken: 5, owed: 190000, overdue: 95000 },
+    { id: 'd3', name: 'Karnataka Power Corp', type: 'Govt/PSU', years: 35, terms: 60, avgOrder: 500000, monthlyBilling: 250000, paidDelays: [20, 28, 15, 35, 22, 30, 26, 19, 31], overdueDays: [12], promisesKept: 3, promisesBroken: 2, owed: 500000, overdue: 500000 },
+    { id: 'd4', name: 'Shree Distributors', type: 'Distributor', years: 7, terms: 30, avgOrder: 150000, monthlyBilling: 180000, paidDelays: [8, 10, 6, 12, 9, 7, 25, 28, 30], overdueDays: [], promisesKept: 5, promisesBroken: 1, owed: 150000, overdue: 0 },
+    { id: 'd5', name: 'Nova Fabricators', type: 'SME manufacturer', years: 5, terms: 30, avgOrder: 80000, monthlyBilling: 90000, paidDelays: [5, 14, 3, 9, 11, 6], overdueDays: [], promisesKept: 3, promisesBroken: 1, owed: 80000, overdue: 0 },
+    { id: 'd6', name: 'Metro Retail Mart', type: 'Trader/Retailer', years: 1, terms: 15, avgOrder: 60000, monthlyBilling: 60000, paidDelays: [22, 45], overdueDays: [64], promisesKept: 0, promisesBroken: 3, owed: 120000, overdue: 60000 },
+    { id: 'd7', name: 'Sunrise Engineering', type: 'SME manufacturer', years: 12, terms: 45, avgOrder: 175000, monthlyBilling: 200000, paidDelays: [0, 3, -2, 4, 1, 0, 2, 5], overdueDays: [], promisesKept: 2, promisesBroken: 0, owed: 175000, overdue: 0 }
+  ];
+  const DEMO_INVOICES = () => {
+    const t = todayStr();
+    return [
+      { id: 'demo-inv-1', number: 'INV-2041', customer: 'Apex Auto Components', email: 'accounts@apex.example', amount: 240000, issueDate: plusDays(t, -40), dueDate: plusDays(t, 5), status: 'open', reminders: { enabled: true, legal: false } },
+      { id: 'demo-inv-2', number: 'INV-1987', customer: 'Delta Traders', email: 'pay@delta.example', amount: 95000, issueDate: plusDays(t, -68), dueDate: plusDays(t, -38), status: 'open', reminders: { enabled: true, legal: false } },
+      { id: 'demo-inv-3', number: 'INV-2010', customer: 'Karnataka Power Corp', email: 'ap@kpc.example', amount: 500000, issueDate: plusDays(t, -72), dueDate: plusDays(t, -12), status: 'open', reminders: { enabled: true, legal: false } }
+    ];
+  };
+  const enterDemoV4 = enterDemoDashboard;
+  enterDemoDashboard = function (...args) {
+    const result = enterDemoV4(...args);
+    const invoiced = new Set(['d1', 'd2', 'd3']);
+    riskCustomers = clone(DEMO_RISK).map(c => invoiced.has(c.id) ? { ...c, owed: 0, overdue: 0, overdueDays: [] } : c);
+    invoices = DEMO_INVOICES();
+    invSettings = { businessName: 'Sample Business Pvt Ltd', contactEmail: '', udyam: 'UDYAM-KA-00-0000000', bankRate: '6.5' };
+    riskResult = null;
+    renderInvoices();
+    refreshRisk();
+    return result;
+  };
+
+  async function refreshRisk() {
+    if ($('dashboardView').hidden) return;
+    const seq = ++riskSeq;
+    try {
+      const data = await api('/api/risk', 'POST', { action: 'overview', customers: riskCustomers, invoices });
+      if (seq !== riskSeq) return;
+      riskResult = data;
+      $('rkError').textContent = '';
+    } catch (error) {
+      if (seq !== riskSeq) return;
+      riskResult = { customers: [] };
+      $('rkError').textContent = error.message;
+    }
+    riskByName = new Map(riskResult.customers.map(c => [customerKey(c.name), c]));
+    renderRisk();
+    if (activeView === 'invoices') renderInvoices();
+  }
+  function renderRisk() {
+    if (!riskResult) return;
+    const list = riskResult.customers.slice().sort((a, b) => (b.score ?? -1) - (a.score ?? -1));
+    const count = d => list.filter(c => c.decision === d).length;
+    $('rkFull').textContent = count('Full credit');
+    $('rkLimited').textContent = count('Limited credit');
+    $('rkAdvance').textContent = count('Advance only');
+    $('rkStatus').textContent = demoMode ? 'Sample customers for the demo. Sign up to score your own customers from your invoices.'
+      : list.length ? list.length + ' customer' + (list.length === 1 ? '' : 's') + '. History comes from your invoices (paid dates and overdue ones) plus anything you add by hand.'
+        : 'Add invoices with their paid dates, or add a customer by hand, to see risk scores.';
+    $('rkList').innerHTML = list.length ? list.map(c => {
+      const score = c.score == null ? 'No score yet' : 'Score ' + c.score + '/100 · ' + c.confidence + ' confidence';
+      const delay = c.typical_delay == null ? 'payment delay unknown' : c.typical_delay > 2 ? 'usually ' + c.typical_delay + ' days late' : 'usually on time';
+      return `<article class="riskcustomer"><div class="riskcustomerhead"><span class="riskcustomername">${esc(c.name)}</span><span class="riskbadge ${riskCls(c.decision)}">${esc(c.decision)}</span></div>
+        <div class="riskmeta">${esc(c.type)}${c.profile_missing ? ' (default, set the real type)' : ''} · ${c.paid_invoices} paid invoice${c.paid_invoices === 1 ? '' : 's'}${c.from_invoices ? ' · ' + c.from_invoices + ' from ClearRun invoices' : ''}</div>
+        <div class="riskmeta">${score} · ${delay}${c.bad_delay != null && c.bad_delay - (c.typical_delay || 0) >= 10 ? ' (slower case ' + c.bad_delay + ' days)' : ''} · owes ${inr(c.owed)}${c.overdue ? ', ' + inr(c.overdue) + ' overdue' : ''}</div>
+        <div class="riskreason">${esc((c.reasons || []).join(' · ') || 'No payment history yet.')}</div>
+        <div class="riskbtns"><button class="reset" type="button" data-rk-deal="${esc(c.id)}" data-amount="${c.avg_order || ''}">Check a deal →</button><button class="reset" type="button" data-rk-edit="${esc(c.id)}">${c.profile_missing ? 'Set profile' : 'Edit profile'}</button>${String(c.id).startsWith('inv:') ? '' : `<button class="reset" type="button" data-rk-del="${esc(c.id)}">Remove</button>`}</div></article>`;
+    }).join('') : '<p class="emptyhint">No customers yet. Save invoices (older ones with their paid date) or use “Add customer”.</p>';
+    const select = $('rkDealCustomer'), keep = select.value;
+    select.innerHTML = '<option value="__new">New customer</option>' + list.map(c => `<option value="${esc(c.id)}">${esc(c.name)}</option>`).join('');
+    if ([...select.options].some(o => o.value === keep)) select.value = keep;
+    $('rkDealNew').hidden = select.value !== '__new';
+  }
+  const setViewV4 = setView;
+  setView = function (view) {
+    setViewV4(view);
+    // Don't show the same word twice (small label + page title).
+    const meta = VIEWS[activeView] || {}, eyebrow = $('viewEyebrow');
+    eyebrow.style.display = meta.title && meta.title.trim().toLowerCase() === String(meta.eyebrow || '').trim().toLowerCase() ? 'none' : '';
+    if (view === 'customerRisk' || view === 'invoices') refreshRisk();
+    if (!$('dashboardView').hidden) try { history.replaceState(null, '', '#' + activeView); } catch {}
+  };
+  $('rkDealCustomer').addEventListener('change', event => { $('rkDealNew').hidden = event.target.value !== '__new'; });
+
+  function profileForm(c = {}) {
+    const days = list => (list || []).join(', ');
+    openDialog(`<form class="rkform" id="rkForm"><h2>${c.name ? 'Customer profile · ' + esc(c.name) : 'Add customer'}</h2>
+      <p class="sub">Profile details help compare customers. Payment history from ClearRun invoices is added automatically; below, add only history from before you used ClearRun.</p>
+      <label class="wide">Customer name<input id="rkName" required minlength="2" maxlength="100" value="${esc(c.name || '')}" ${c.name ? 'readonly' : ''}></label>
+      <label>Type<select id="rkType">${TYPES.map(t => `<option ${t === (c.type || 'SME manufacturer') ? 'selected' : ''}>${esc(t)}</option>`).join('')}</select></label>
+      <label>Years in business<input id="rkYears" type="number" min="0" max="100" step="1" value="${c.years ?? 3}"></label>
+      <label>Usual credit days<input id="rkTerms" type="number" min="0" max="365" step="1" value="${c.terms ?? 30}"></label>
+      <label>Payment promises kept<input id="rkKept" type="number" min="0" step="1" value="${c.promisesKept ?? 0}"></label>
+      <label>Payment promises broken<input id="rkBroken" type="number" min="0" step="1" value="${c.promisesBroken ?? 0}"></label>
+      <label>Average order (₹, optional)<input id="rkAvg" type="number" min="0" step="1" value="${c.avgOrder || ''}"></label>
+      <h3 class="wide">Earlier history (optional)</h3>
+      <label class="wide">Days late on earlier paid invoices, oldest first<input id="rkDelays" placeholder="0, 4, 12, -2" value="${esc(days(c.paidDelays))}"></label>
+      <label>Days overdue on earlier open invoices<input id="rkOverdueDays" placeholder="10, 35" value="${esc(days(c.overdueDays))}"></label>
+      <label>Earlier amount owed (₹)<input id="rkOwed" type="number" min="0" step="1" value="${c.owed || 0}"></label>
+      <label>…of which overdue (₹)<input id="rkOverdue" type="number" min="0" step="1" value="${c.overdue || 0}"></label>
+      <div class="setmsg err wide" id="rkFormErr"></div>
+      <div class="ladderbtns wide"><button class="secondarybtn" type="button" data-close>Cancel</button><button class="primarybtn" type="submit">Save</button></div></form>`);
+    $('rkForm').addEventListener('submit', event => {
+      event.preventDefault();
+      const parseDays = value => value.trim() ? value.split(/[\s,;]+/).filter(Boolean).map(part => { const n = Number(part); if (!Number.isInteger(n) || n < -90 || n > 730) throw new Error('Enter days as whole numbers separated by commas.'); return n; }) : [];
+      try {
+        const name = $('rkName').value.trim();
+        const owed = +$('rkOwed').value || 0, overdue = +$('rkOverdue').value || 0;
+        if (overdue > owed) throw new Error('The overdue amount cannot be more than the amount owed.');
+        const existing = riskCustomers.find(item => customerKey(item.name) === customerKey(name));
+        const profile = {
+          id: existing?.id || (crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36)), name, type: $('rkType').value,
+          years: +$('rkYears').value || 0, terms: +$('rkTerms').value || 0, avgOrder: +$('rkAvg').value || 0, monthlyBilling: existing?.monthlyBilling || 0,
+          promisesKept: +$('rkKept').value || 0, promisesBroken: +$('rkBroken').value || 0,
+          paidDelays: parseDays($('rkDelays').value), overdueDays: parseDays($('rkOverdueDays').value), owed, overdue
+        };
+        if (name.length < 2) throw new Error('Enter the customer name.');
+        riskCustomers = existing ? riskCustomers.map(item => item === existing ? profile : item) : [...riskCustomers, profile];
+        dialog.close();
+        saveAccountState();
+        refreshRisk();
+        if (demoMode) note('Demo: changes are not saved.');
+      } catch (error) { $('rkFormErr').textContent = error.message; }
+    });
+  }
+  // Values typed by hand are stored; invoice history is added on top when scores are calculated.
+  const manualPart = id => {
+    const manual = riskCustomers.find(item => item.id === id);
+    if (manual) return manual;
+    const shown = riskResult?.customers.find(item => item.id === id);
+    return shown ? { name: shown.name, type: shown.profile_missing ? 'SME manufacturer' : shown.type, years: shown.years, terms: shown.terms } : {};
+  };
+  $('rkAdd').addEventListener('click', () => profileForm());
+  document.addEventListener('click', event => {
+    const edit = event.target.closest('[data-rk-edit]');
+    if (edit) return profileForm(manualPart(edit.dataset.rkEdit));
+    const del = event.target.closest('[data-rk-del]');
+    if (del) {
+      const c = riskCustomers.find(item => item.id === del.dataset.rkDel);
+      if (!c || !confirm('Remove ' + c.name + '’s profile and the history typed in by hand? Invoices stay as they are.')) return;
+      riskCustomers = riskCustomers.filter(item => item !== c);
+      saveAccountState();
+      refreshRisk();
+      return;
+    }
+    const deal = event.target.closest('[data-rk-deal]');
+    if (deal) {
+      $('rkDealCustomer').value = deal.dataset.rkDeal;
+      $('rkDealNew').hidden = true;
+      if (deal.dataset.amount) $('rkDealAmount').value = Math.round(deal.dataset.amount);
+      $('rkDealPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+  $('rkDealForm').addEventListener('submit', async event => {
+    event.preventDefault();
+    const amount = +$('rkDealAmount').value, terms = +$('rkDealTerms').value, who = $('rkDealCustomer').value;
+    const body = { action: 'assess', amount, terms, customers: riskCustomers, invoices };
+    if (who === '__new') body.new = { type: $('rkDealType').value, years: +$('rkDealYears').value || 0, order: +$('rkDealOrder').value || amount };
+    else body.customerId = who;
+    $('rkDealError').textContent = '';
+    $('rkDealGo').disabled = true;
+    try { renderDeal(await api('/api/risk', 'POST', body)); }
+    catch (error) { $('rkDealError').textContent = error.message; $('rkDealResult').hidden = true; }
+    $('rkDealGo').disabled = false;
+  });
+  function renderDeal(deal) {
+    const plan = deal.plan, result = $('rkDealResult');
+    const score = deal.score == null ? 'Score unavailable' : 'Risk score ' + deal.score + '/100 · ' + deal.confidence + ' confidence';
+    result.innerHTML = `<div class="riskResultHead"><span class="riskbadge ${riskCls(deal.decision)}">${esc(deal.decision)}</span><b>${esc(deal.who)}</b><span class="riskScore">${esc(score)}</span></div>
+      <div class="dealstats">
+        <div><small>If you agree to the asked terms</small><strong>Money around ${esc(fmtDay(deal.expected))}</strong><small>Due ${esc(fmtDay(deal.due))} · slower case ${esc(fmtDay(deal.bad_case))}</small></div>
+        <div><small>Exposure / suggested limit</small><strong>${inr(deal.exposure)} / ${inr(deal.limit)}</strong><small>${inr(deal.owed_now)} already owed${deal.overdue ? ' · ' + inr(deal.overdue) + ' overdue' : ''}</small></div>
+        <div><small>Suggested collection</small><strong>${plan.advance ? inr(plan.advance) + ' advance' : 'No advance'}${plan.on_credit ? ' + ' + inr(plan.on_credit) + ' on ' + plan.terms + ' days' : ''}</strong><small>${plan.on_credit ? 'Credit part around ' + esc(fmtDay(plan.arrival)) : 'All before dispatch'}</small></div>
+      </div>
+      <b class="small">What to do</b><ol class="riskActions">${deal.actions.map(a => '<li>' + esc(a) + '</li>').join('')}</ol>
+      ${deal.similar?.length ? '<div class="riskSimilar"><b>Compared with:</b> ' + deal.similar.map(c => esc(c.name) + ' (' + c.similarity + '% similar, ' + esc(c.decision) + ')').join(' · ') + '</div>' : ''}
+      <div class="riskbtns end"><button class="primarybtn" type="button" id="rkAddForecast">Add these payments to my forecast</button></div>`;
+    result.hidden = false;
+    $('rkAddForecast').addEventListener('click', event => {
+      const stamp = Date.now().toString(36), added = [];
+      if (plan.advance > 0) { flowItems.push({ id: 'risk-advance-' + stamp, name: 'Advance · ' + deal.who, type: 'in', amount: plan.advance, week: 0 }); added.push(inr(plan.advance) + ' this week'); }
+      if (plan.on_credit > 0) {
+        const week = Math.floor(plan.arrival_days / 7);
+        if (week > 12) added.push('the credit part arrives after the 13-week forecast');
+        else { flowItems.push({ id: 'risk-credit-' + stamp, name: deal.who + ' · expected payment', type: 'in', amount: plan.on_credit, week }); added.push(inr(plan.on_credit) + ' in week ' + week); }
+      }
+      buildFlowArrays();
+      renderEvents();
+      draw();
+      saveAccountState();
+      event.target.textContent = 'Added: ' + added.join(' and ');
+      event.target.disabled = true;
+    });
+  }
+
+  // =====================================================================
+  // 7. Chance of a shortfall (1,500 simulated paths from the predictor)
+  // =====================================================================
+  document.getElementById('impactShortfall')?.closest('.impactrow')?.insertAdjacentHTML('afterend',
+    '<div class="impactrow"><span>Chance of going below reserve</span><strong id="riskReserve">Add a reserve</strong></div><div class="impactrow"><span>Chance of negative cash</span><strong id="riskNegative">Not available</strong></div>');
+  let predictTimer, predictSeq = 0;
+  function schedulePredict() {
+    clearTimeout(predictTimer);
+    const reserveEl = $('riskReserve'), negativeEl = $('riskNegative');
+    if (!reserveEl) return;
+    if (!cashProvided) { reserveEl.textContent = reserveProvided ? 'Add your balance' : 'Add a reserve'; negativeEl.textContent = 'Add your balance'; return; }
+    predictTimer = setTimeout(async () => {
+      const seq = ++predictSeq;
+      try {
+        const result = await api('/api/predict', 'POST', {
+          openingCash: cashStart, reserve: reserveProvided ? reserve : 0,
+          flows: flowItems.map(({ type, amount, week }) => ({ type, amount: Number(amount), week: Math.max(0, Math.min(13, Math.round(Number(week) || 0))) })),
+          scenario: { delayWeeks: +$('delay').value, extraExpense: +$('expense').value, salesChange: +$('sales').value }
+        });
+        if (seq !== predictSeq) return;
+        reserveEl.textContent = reserveProvided ? Math.round(result.scenario.probabilityBelowReserve * 100) + '%' : 'Add a reserve';
+        negativeEl.textContent = Math.round(result.scenario.probabilityNegative * 100) + '%';
+      } catch {
+        if (seq === predictSeq) { reserveEl.textContent = 'Unavailable'; negativeEl.textContent = 'Unavailable'; }
+      }
+    }, 250);
+  }
+  const drawV4 = draw;
+  draw = function () { drawV4(); schedulePredict(); };
+
+  // Home goes to the Overview page. It used to show the landing page, which looked like being signed out.
+  const homeOld = $('backHome'), home = homeOld.cloneNode(true); // drops the old handler
+  homeOld.replaceWith(home);
+  home.addEventListener('click', () => { setView('overview'); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+  // =====================================================================
+  // Start: open the view in the address (e.g. #customerRisk), then restore the session
+  // =====================================================================
+  const wanted = location.hash.slice(1);
+  setView(VIEWS[wanted] ? wanted : activeView);
+  restoreServerSession().then(() => {
+    // A shared link to #customerRisk opens the demo for visitors, but never interrupts a sign in.
+    if (wanted === 'customerRisk' && !currentUser && $('dashboardView').hidden && $('authModal').hidden) { enterDemoDashboard(); setView(wanted); }
+  });
+})();
+
+</script>
+</body></html>

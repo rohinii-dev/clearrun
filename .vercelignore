@@ -1,0 +1,15 @@
+.env
+.env.*
+work
+outputs
+node_modules
+HANDOFF.md
+cashflow_predictor
+requirements.txt
+*.py
+fix_app.py
+SETUP-REMINDERS.md
+tests
+CHANGES-v5.md
+!.env.example
+docs

@@ -1,0 +1,36 @@
+<div class="panel scanpanel" id="scanPanel" hidden>
+ <div class="panelhead"><div><h2>Scan an invoice</h2><div class="sub">Upload or photograph an invoice. ClearRun reads it and fills the details in for you to check.</div></div><button class="reset" type="button" id="scanClose" aria-label="Close scanner">Close ×</button></div>
+ <div class="scangrid">
+  <div>
+   <label class="dropzone" id="scanDrop" for="scanFile">
+    <input type="file" id="scanFile" accept="image/*" capture="environment" hidden>
+    <span class="dropicon">⇪</span>
+    <b>Choose an invoice photo or image</b>
+    <span>JPG, PNG or WEBP · or drag it here · on a phone this opens the camera</span>
+   </label>
+   <img class="scanpreview" id="scanPreview" alt="Invoice preview" hidden>
+   <div class="scanstatus" id="scanStatus" aria-live="polite"></div>
+   <div class="scanbar" id="scanBar" hidden><span id="scanBarFill"></span></div>
+  </div>
+  <form class="scanform" id="scanForm" hidden novalidate>
+   <div class="scanformhead"><b>Check the details</b><span class="tag pending" id="scanSource"></span></div>
+   <label>Customer (billed to)<input id="scCustomer" maxlength="60" required><small id="scCustomerConf"></small></label>
+   <div class="scanrow">
+    <label>Invoice no.<input id="scNumber" maxlength="40"></label>
+    <label>Amount (₹)<input id="scAmount" type="number" min="1" step="any" required><small id="scAmountConf"></small></label>
+   </div>
+   <div class="scanrow">
+    <label>Invoice date<input id="scInvDate" type="date"></label>
+    <label>Due date<input id="scDueDate" type="date"><small id="scDueConf"></small></label>
+   </div>
+   <div class="scanrow">
+    <label>Payment terms (days)<input id="scTerms" type="number" min="0" step="1" placeholder="30"></label>
+    <label>GSTIN<input id="scGstin" maxlength="15"></label>
+   </div>
+   <div class="formhint">No due date on the invoice? We use invoice date + payment terms (30 days if not shown).</div>
+   <div class="formactions"><button class="primarybtn" type="submit">Add invoice</button><button class="reset" type="button" id="scanAgain">Scan another</button></div>
+   <div class="setmsg" id="scanMsg" aria-live="polite"></div>
+   <details class="rawtext"><summary>Text read from the image</summary><pre id="scanRaw"></pre></details>
+  </form>
+ </div>
+</div>
