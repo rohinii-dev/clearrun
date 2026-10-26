@@ -1,7 +1,0 @@
-label,type,amount,day_of_month,note
-Payroll,payroll,450000,28,
-Rent,rent,40000,1,
-Loan EMI,loan,70000,5,
-GST payment,statutory,90000,20,PLACEHOLDER - verify amount/date
-TDS deposit,statutory,20000,7,PLACEHOLDER - verify amount/date
-PF/ESI,statutory,35000,15,PLACEHOLDER - verify amount/date

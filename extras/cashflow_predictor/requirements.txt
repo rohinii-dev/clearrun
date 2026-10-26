@@ -1,3 +1,0 @@
-numpy
-# optional, only for --chart:
-# matplotlib
